@@ -7,6 +7,7 @@ import 'package:furniture_app/size_config.dart';
 import 'components/body.dart';
 
 class DetailsScreen extends StatelessWidget {
+  static const String id = 'details_screen';
   final Product product;
 // Thats means we have to  pass it
   const DetailsScreen({Key key, @required this.product}) : super(key: key);

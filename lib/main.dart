@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
+import 'package:furniture_app/screens/details/details_screen.dart';
 import 'package:furniture_app/screens/home/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'screens/login/login_screen.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
+import 'screens/registration/registration_screen.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await translator.init(
+    localeDefault: LocalizationDefaultType.device,
+    languagesList: <String>['ar', 'en'],
+    assetsDirectory: 'assets/langs/',
+    //apiKeyGoogle: '<Key>', // NOT YET TESTED
+  );
+
+  runApp(
+    LocalizedApp(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +45,16 @@ class MyApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      initialRoute: LoginScreen.id,
+      routes: {
+        LoginScreen.id: (context) => LoginScreen(),
+        RegistrationScreen.id: (context) => RegistrationScreen(),
+        HomeScreen.id: (context) => HomeScreen(),
+        DetailsScreen.id: (context) => DetailsScreen(),
+      },
+      localizationsDelegates: translator.delegates, // Android + iOS Delegates
+      locale: translator.locale, // Active locale
+      supportedLocales: translator.locals(),
     );
   }
 }
