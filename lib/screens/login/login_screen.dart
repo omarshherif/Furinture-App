@@ -99,33 +99,6 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // Widget _buildRememberMeCheckbox() {
-  //   return Container(
-  //     height: 20.0,
-  //     child: Row(
-  //       children: <Widget>[
-  //         Theme(
-  //           data: ThemeData(unselectedWidgetColor: Colors.black),
-  //           child: Checkbox(
-  //             value: _rememberMe,
-  //             checkColor: Colors.green,
-  //             activeColor: Colors.white12,
-  //             onChanged: (value) {
-  //               setState(() {
-  //                 _rememberMe = value;
-  //               });
-  //             },
-  //           ),
-  //         ),
-  //         Text(
-  //           'Remember me',
-  //           style: kLabelStyle,
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
-
   Widget _buildLoginBtn() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 15.0),
@@ -291,7 +264,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       _buildPasswordTF(),
                       _buildForgotPasswordBtn(),
-                      //_buildRememberMeCheckbox(),
                       _buildLoginBtn(),
                       SizedBox(
                         height: 10.0,
