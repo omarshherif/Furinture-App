@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'screens/login/login_screen.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'screens/registration/registration_screen.dart';
+import 'screens/welcome/welcome_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,8 +46,9 @@ class MyApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: LoginScreen.id,
+      initialRoute: WelcomeScreen.id,
       routes: {
+        WelcomeScreen.id: (context) => WelcomeScreen(),
         LoginScreen.id: (context) => LoginScreen(),
         RegistrationScreen.id: (context) => RegistrationScreen(),
         HomeScreen.id: (context) => HomeScreen(),

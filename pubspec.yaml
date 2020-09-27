@@ -45,10 +45,10 @@ flutter:
     - assets/icons/
     - assets/ripple.gif
     - assets/spinner.gif
-    - assets/logos/facebook.jpg
     - assets/logos/google.jpg
     - assets/langs/en.json
     - assets/langs/ar.json
+
 
 
   fonts:
