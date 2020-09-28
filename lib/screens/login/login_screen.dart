@@ -145,8 +145,8 @@ class _LoginScreenState extends State<LoginScreen> {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 60.0,
-        width: 60.0,
+        height: 65.0,
+        width: 65.0,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: Colors.white,
@@ -154,7 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
             BoxShadow(
               color: Colors.black26,
               offset: Offset(0, 2),
-              blurRadius: 7.0,
+              blurRadius: 8.0,
             ),
           ],
           image: DecorationImage(
@@ -167,7 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildSocialBtnRow() {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.0),
+      padding: EdgeInsets.symmetric(vertical: 6.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[

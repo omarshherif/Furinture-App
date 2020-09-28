@@ -49,6 +49,7 @@ flutter:
     - assets/logos/smartphone.jpg
     - assets/langs/en.json
     - assets/langs/ar.json
+    - assets/images/Furniture.png
 
 
 

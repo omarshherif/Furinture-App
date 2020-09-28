@@ -46,6 +46,7 @@ class MyApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+
       initialRoute: WelcomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.id: (context) => HomeScreen(),
         DetailsScreen.id: (context) => DetailsScreen(),
       },
+
       localizationsDelegates: translator.delegates, // Android + iOS Delegates
       locale: translator.locale, // Active locale
       supportedLocales: translator.locals(),
