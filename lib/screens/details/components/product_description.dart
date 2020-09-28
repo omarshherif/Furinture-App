@@ -20,7 +20,7 @@ class ProductDescription extends StatelessWidget {
     return Container(
       constraints: BoxConstraints(minHeight: defaultSize * 44),
       padding: EdgeInsets.only(
-        top: defaultSize * 9, //90
+        top: defaultSize * 8, //90
         left: defaultSize * 2, //20
         right: defaultSize * 2,
       ),
@@ -43,7 +43,7 @@ class ProductDescription extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: defaultSize * 3),
+            SizedBox(height: 4.0),
             Text(
               product.description,
               style: TextStyle(
@@ -51,7 +51,7 @@ class ProductDescription extends StatelessWidget {
                 height: 1.5,
               ),
             ),
-            SizedBox(height: defaultSize * 3),
+            SizedBox(height: 10.0),
             SizedBox(
               width: double.infinity,
               child: FlatButton(

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:furniture_app/screens/login/login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static const String id = 'welcome_screen';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

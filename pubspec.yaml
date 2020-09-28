@@ -46,6 +46,7 @@ flutter:
     - assets/ripple.gif
     - assets/spinner.gif
     - assets/logos/google.jpg
+    - assets/logos/smartphone.jpg
     - assets/langs/en.json
     - assets/langs/ar.json
 

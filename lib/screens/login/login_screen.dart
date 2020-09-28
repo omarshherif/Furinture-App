@@ -13,8 +13,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  //bool _rememberMe = false;
-
   Widget _buildEmailTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,6 +175,12 @@ class _LoginScreenState extends State<LoginScreen> {
             () => print('Login with Google'),
             AssetImage(
               'assets/logos/google.jpg',
+            ),
+          ),
+          _buildSocialBtn(
+            () => print('Login with Phone'),
+            AssetImage(
+              'assets/logos/smartphone.jpg',
             ),
           ),
         ],
