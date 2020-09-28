@@ -14,7 +14,7 @@ class WelcomeScreen extends StatelessWidget {
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(
-                top: 300.0, left: 30.0, right: 30.0, bottom: 30.0),
+                top: 280.0, left: 30.0, right: 30.0, bottom: 30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -48,7 +48,17 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
+                  Text(
+                    '\nSelect Language',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'OpenSans',
+                      fontSize: 23.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   SizedBox(
                     height: 50.0,
                   ),
@@ -61,7 +71,7 @@ class WelcomeScreen extends StatelessWidget {
                       );
                     },
                     padding: EdgeInsets.only(
-                        left: 135.0, right: 135.0, top: 17.0, bottom: 17.0),
+                        left: 130.0, right: 130.0, top: 17.0, bottom: 17.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(26.0),
                     ),
@@ -88,7 +98,7 @@ class WelcomeScreen extends StatelessWidget {
                       );
                     },
                     padding: EdgeInsets.only(
-                        left: 135.0, right: 135.0, top: 17.0, bottom: 17.0),
+                        left: 130.0, right: 130.0, top: 17.0, bottom: 17.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(26.0),
                     ),
