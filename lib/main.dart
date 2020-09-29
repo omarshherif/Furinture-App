@@ -4,9 +4,11 @@ import 'package:furniture_app/screens/Welcome/welcome_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'routes.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
   await translator.init(
     localeDefault: LocalizationDefaultType.device,

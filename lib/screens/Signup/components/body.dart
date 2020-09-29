@@ -10,8 +10,16 @@ import 'package:furniture_app/components/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/screens/home/home_screen.dart';
 import 'package:furniture_app/screens/otp/otp_screen.dart';
+import 'package:furniture_app/services/firebase_authentication.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  FirebaseAuthBrain firebaseAuthBrain = FirebaseAuthBrain();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -31,15 +39,31 @@ class Body extends StatelessWidget {
             ),
             RoundedInputField(
               hintText: "Your Email",
-              onChanged: (value) {},
+              onChanged: (value) {
+                setState(() {
+                  firebaseAuthBrain.email = value;
+                });
+              },
             ),
             RoundedPasswordField(
-              onChanged: (value) {},
+              onChanged: (value) {
+                setState(() {
+                  firebaseAuthBrain.password = value;
+                });
+              },
             ),
             RoundedButton(
               text: "SIGNUP",
-              press: () {
-                Navigator.pushNamed(context, HomeScreen.routeName);
+              press: () async {
+                firebaseAuthBrain.auth.signOut();
+                await firebaseAuthBrain.registerWithEmail();
+                firebaseAuthBrain.auth.authStateChanges().listen((User user) {
+                  if (user != null) {
+                    print('User is signed in!');
+                    Navigator.pushNamed(context, HomeScreen.routeName);
+                    // return true;
+                  }
+                });
               },
             ),
             SizedBox(height: size.height * 0.03),
@@ -68,7 +92,18 @@ class Body extends StatelessWidget {
                 ),
                 SocalIcon(
                   iconSrc: "assets/icons/google.svg",
-                  press: () {},
+                  press: () async {
+                    await firebaseAuthBrain.signInWithGoogle();
+                    firebaseAuthBrain.auth
+                        .authStateChanges()
+                        .listen((User user) {
+                      if (user != null) {
+                        print('User is signed in!');
+                        Navigator.pushNamed(context, HomeScreen.routeName);
+                        // return true;
+                      }
+                    });
+                  },
                 ),
               ],
             )
