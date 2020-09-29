@@ -63,7 +63,7 @@ class Body extends StatelessWidget {
                 SocalIcon(
                   iconSrc: "assets/icons/smartphone.svg",
                   press: () {
-                    //Navigator.pushNamed(context, OtpScreen.routeName);
+                    Navigator.pushNamed(context, OtpScreen.routeName);
                   },
                 ),
                 SocalIcon(
