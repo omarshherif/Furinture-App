@@ -8,6 +8,7 @@ import 'categories.dart';
 import 'recommond_products.dart';
 
 class Body extends StatelessWidget {
+  static const String id = 'home_screen';
   @override
   Widget build(BuildContext context) {
     double defaultSize = SizeConfig.defaultSize;

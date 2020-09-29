@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
-import 'package:furniture_app/screens/details/details_screen.dart';
-import 'package:furniture_app/screens/home/home_screen.dart';
+import 'package:furniture_app/screens/Signup/signup_screen.dart';
+import 'package:furniture_app/screens/Welcome/welcome_screen.dart';
+import 'screens/Login/login_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'screens/login/login_screen.dart';
+import 'screens/home/home_screen.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
-import 'screens/registration/registration_screen.dart';
-import 'screens/welcome/welcome_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,16 +45,13 @@ class MyApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-
       initialRoute: WelcomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         LoginScreen.id: (context) => LoginScreen(),
-        RegistrationScreen.id: (context) => RegistrationScreen(),
+        SignUpScreen.id: (context) => SignUpScreen(),
         HomeScreen.id: (context) => HomeScreen(),
-        DetailsScreen.id: (context) => DetailsScreen(),
       },
-
       localizationsDelegates: translator.delegates, // Android + iOS Delegates
       locale: translator.locale, // Active locale
       supportedLocales: translator.locals(),
