@@ -1,8 +1,12 @@
+//import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/home/components/body.dart';
 import 'package:furniture_app/size_config.dart';
+import 'package:furniture_app/screens/cart/cart_screen.dart';
+import 'package:furniture_app/routes.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
@@ -19,12 +23,12 @@ class HomeScreen extends StatelessWidget {
   AppBar buildAppBar() {
     return AppBar(
       leading: IconButton(
-        icon: SvgPicture.asset(
-          "assets/icons/menu.svg",
-          height: SizeConfig.defaultSize * 2, //20
-        ),
-        onPressed: () {},
-      ),
+          icon: SvgPicture.asset(
+            "assets/icons/menu.svg",
+            height: SizeConfig.defaultSize * 2, //20
+          ),
+          onPressed: () {} //Navigator.pushNamed(context, CartScreen.routeName),
+          ),
       actions: <Widget>[
         IconButton(
           icon: SvgPicture.asset(
