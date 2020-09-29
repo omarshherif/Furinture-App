@@ -5,7 +5,7 @@ import 'package:furniture_app/screens/home/components/body.dart';
 import 'package:furniture_app/size_config.dart';
 
 class HomeScreen extends StatelessWidget {
-  static const String id = 'home_screen';
+  static String routeName = "/home";
   @override
   Widget build(BuildContext context) {
     // It help us to  make our UI responsive

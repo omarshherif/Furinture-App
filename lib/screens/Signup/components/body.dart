@@ -9,6 +9,7 @@ import 'package:furniture_app/components/rounded_input_field.dart';
 import 'package:furniture_app/components/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/screens/home/home_screen.dart';
+import 'package:furniture_app/screens/otp/otp_screen.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -38,7 +39,7 @@ class Body extends StatelessWidget {
             RoundedButton(
               text: "SIGNUP",
               press: () {
-                Navigator.pushNamed(context, HomeScreen.id);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               },
             ),
             SizedBox(height: size.height * 0.03),
@@ -61,7 +62,9 @@ class Body extends StatelessWidget {
               children: <Widget>[
                 SocalIcon(
                   iconSrc: "assets/icons/smartphone.svg",
-                  press: () {},
+                  press: () {
+                    //Navigator.pushNamed(context, OtpScreen.routeName);
+                  },
                 ),
                 SocalIcon(
                   iconSrc: "assets/icons/google.svg",

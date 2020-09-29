@@ -41,7 +41,7 @@ class Body extends StatelessWidget {
             RoundedButton(
               text: "LOGIN",
               press: () {
-                Navigator.pushNamed(context, HomeScreen.id);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               },
             ),
             SizedBox(height: size.height * 0.03),
