@@ -1,13 +1,9 @@
-//import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/constants.dart';
+import 'package:furniture_app/screens/cart/cart_screen.dart';
 import 'package:furniture_app/screens/home/components/body.dart';
-import 'package:furniture_app/screens/sidebar/sidebar/sidebar.dart';
 import 'package:furniture_app/size_config.dart';
-// import 'package:furniture_app/screens/cart/cart_screen.dart';
-// import 'package:furniture_app/routes.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
@@ -16,36 +12,71 @@ class HomeScreen extends StatelessWidget {
     // It help us to  make our UI responsive
     SizeConfig().init(context);
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(
+                Icons.menu,
+                color: Color(0xFF171717),
+              ),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          },
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text("Omar Sherif"),
+              accountEmail: Text("omarshherif@yahoo.com"),
+              currentAccountPicture: GestureDetector(
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  //backgroundImage: NetworkImage(''),
+                ),
+              ),
+              decoration: BoxDecoration(
+                color: Color(0xFF6F35A5),
+              ),
+            ),
+            ListTile(
+              trailing: Icon(Icons.perm_identity),
+              title: Text('Profile'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Cart'),
+              trailing: Icon(Icons.shopping_cart),
+              onTap: () {
+                Navigator.pop(context, CartScreen.routeName);
+              },
+            ),
+            Divider(),
+            ListTile(
+              trailing: Icon(Icons.call_missed_outgoing),
+              title: Text('Logout'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       body: Body(),
-    );
-  }
-
-  AppBar buildAppBar() {
-    return AppBar(
-      leading: IconButton(
-          icon: SvgPicture.asset(
-            "assets/icons/menu.svg",
-            height: SizeConfig.defaultSize * 2, //20
-          ),
-          onPressed: () {} //Navigator.pushNamed(context, CartScreen.routeName),
-          ),
-      actions: <Widget>[
-        IconButton(
-          icon: SvgPicture.asset(
-            "assets/icons/scan.svg",
-            height: SizeConfig.defaultSize * 2.4, //24
-          ),
-          onPressed: () {},
-        ),
-        Center(
-          child: Text(
-            "Scan",
-            style: TextStyle(color: kTextColor, fontWeight: FontWeight.bold),
-          ),
-        ),
-        SizedBox(width: SizeConfig.defaultSize),
-      ],
+      //onPressed: () {},
     );
   }
 }
