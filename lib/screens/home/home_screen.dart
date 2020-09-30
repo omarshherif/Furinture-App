@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/home/components/body.dart';
+import 'package:furniture_app/screens/sidebar/sidebar/sidebar.dart';
 import 'package:furniture_app/size_config.dart';
-import 'package:furniture_app/screens/cart/cart_screen.dart';
-import 'package:furniture_app/routes.dart';
+// import 'package:furniture_app/screens/cart/cart_screen.dart';
+// import 'package:furniture_app/routes.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
