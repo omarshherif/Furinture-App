@@ -7,6 +7,7 @@ import 'package:furniture_app/screens/home/home_screen.dart';
 import 'package:furniture_app/screens/otp/otp_screen.dart';
 import 'package:furniture_app/screens/Login/login_screen.dart';
 import 'package:furniture_app/screens/profile/profile_screen.dart';
+import 'package:furniture_app/screens/settings/settings.dart';
 
 import 'screens/Signup/signup_screen.dart';
 
@@ -20,5 +21,6 @@ final Map<String, WidgetBuilder> routes = {
   HomeScreen.routeName: (context) => HomeScreen(),
   DetailsScreen.routeName: (context) => DetailsScreen(),
   CartScreen.routeName: (context) => CartScreen(),
-  ProfileScreen.routeName:(context) => ProfileScreen(),
+  ProfileScreen.routeName: (context) => ProfileScreen(),
+  SettingsScreen.routeName: (context) => SettingsScreen(),
 };

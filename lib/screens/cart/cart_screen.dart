@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/models/Cart.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 import 'components/body.dart';
 import 'components/check_out_card.dart';
 
@@ -17,6 +17,12 @@ class CartScreen extends StatelessWidget {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
+      leading: IconButton(
+        icon: SvgPicture.asset("assets/icons/arrow-long-left.svg"),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
       title: Column(
         children: [
           Text(
@@ -24,7 +30,7 @@ class CartScreen extends StatelessWidget {
             style: TextStyle(color: Colors.black),
           ),
           Text(
-            "${demoCarts.length} items",
+            "${cartItems.length} items",
             style: Theme.of(context).textTheme.caption,
           ),
         ],
