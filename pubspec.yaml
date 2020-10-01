@@ -29,6 +29,7 @@ dependencies:
   flutter_bloc: ^2.1.1
 
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -46,6 +47,10 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/icons/cart.svg
+    - assets/icons/payment.svg
+    - assets/icons/help.svg
+    - assets/icons/language.svg
     - assets/ripple.gif
     - assets/spinner.gif
     - assets/logos/google.jpg

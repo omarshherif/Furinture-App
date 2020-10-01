@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/components/my_bottom_nav_bar.dart';
-import 'package:recipe_app/constants.dart';
-import 'package:recipe_app/screens/profile/components/body.dart';
-import 'package:recipe_app/size_config.dart';
+import 'package:furniture_app/constants.dart';
+import 'package:furniture_app/screens/profile/components/body.dart';
+import 'package:furniture_app/size_config.dart';
 
 class ProfileScreen extends StatelessWidget {
+  static String routeName = "/profile";
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
       appBar: buildAppBar(),
       body: Body(),
-      bottomNavigationBar: MyBottomNavBar(),
     );
   }
 

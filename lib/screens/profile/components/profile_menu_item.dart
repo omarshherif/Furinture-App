@@ -25,12 +25,15 @@ class ProfileMenuItem extends StatelessWidget {
         child: SafeArea(
           child: Row(
             children: <Widget>[
-              SvgPicture.asset(iconSrc),
+              SvgPicture.asset(
+                iconSrc,
+                color: Color(0xFF7286A5),
+              ),
               SizedBox(width: defaultSize * 2),
               Text(
                 title,
                 style: TextStyle(
-                  fontSize: defaultSize * 1.6, //16
+                  fontSize: defaultSize * 1.8, //16
                   color: kTextLigntColor,
                 ),
               ),

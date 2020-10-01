@@ -47,3 +47,6 @@ OutlineInputBorder outlineInputBorder() {
     borderSide: BorderSide(color: kTextColor),
   );
 }
+
+const kTextLigntColor = Color(0xFF7286A5);
+final kDrawerTextStyle = TextStyle(color: Color(0xFF7286A5), fontSize: 15.0);

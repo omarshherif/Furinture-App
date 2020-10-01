@@ -3,7 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/cart/cart_screen.dart';
 import 'package:furniture_app/screens/home/components/body.dart';
+import 'package:furniture_app/screens/profile/profile_screen.dart';
 import 'package:furniture_app/size_config.dart';
+import 'package:furniture_app/services/firebase_authentication.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
@@ -47,28 +49,49 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             ListTile(
-              trailing: Icon(Icons.perm_identity),
-              title: Text('Profile'),
+              leading: Icon(Icons.account_circle),
+              title: Text(
+                'Profile',
+                style: kDrawerTextStyle,
+              ),
               onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
+                Navigator.pushNamed(context, ProfileScreen.routeName);
               },
             ),
             ListTile(
-              title: Text('Cart'),
-              trailing: Icon(Icons.shopping_cart),
+              title: Text(
+                'Cart',
+                style: kDrawerTextStyle,
+              ),
+              leading: Icon(Icons.shopping_cart),
               onTap: () {
-                Navigator.pop(context, CartScreen.routeName);
+                Navigator.pushNamed(context, CartScreen.routeName);
               },
+            ),
+            ListTile(
+              title: Text(
+                'Settings',
+                style: kDrawerTextStyle,
+              ),
+              leading: Icon(Icons.settings),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text(
+                'Help',
+                style: kDrawerTextStyle,
+              ),
+              leading: Icon(Icons.help),
+              onTap: () {},
             ),
             Divider(),
             ListTile(
-              trailing: Icon(Icons.call_missed_outgoing),
-              title: Text('Logout'),
+              leading: Icon(Icons.close),
+              title: Text(
+                'Logout',
+                style: kDrawerTextStyle,
+              ),
               onTap: () {
-                // Update the state of the app.
-                // ...
                 Navigator.pop(context);
               },
             ),
@@ -76,7 +99,6 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: Body(),
-      //onPressed: () {},
     );
   }
 }
