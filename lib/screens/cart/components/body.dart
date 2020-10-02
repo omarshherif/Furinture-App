@@ -25,7 +25,7 @@ class _BodyState extends State<Body> {
             direction: DismissDirection.endToStart,
             onDismissed: (direction) {
               setState(() {
-                cartItems.removeAt(index);
+                cartItems.removeAt(1);
               });
             },
             background: Container(
@@ -41,7 +41,7 @@ class _BodyState extends State<Body> {
                 ],
               ),
             ),
-            child: CartCard(cart: cartItems[index]),
+            child: CartCard(cart: cartItems[1]),
           ),
         ),
       ),

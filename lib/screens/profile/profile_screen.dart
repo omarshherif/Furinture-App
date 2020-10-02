@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/profile/components/body.dart';
 import 'package:furniture_app/size_config.dart';
+import 'package:furniture_app/screens/home/home_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfileScreen extends StatelessWidget {
   static String routeName = "/profile";
@@ -17,8 +19,10 @@ class ProfileScreen extends StatelessWidget {
   AppBar buildAppBar() {
     return AppBar(
       backgroundColor: kPrimaryColor,
-      leading: SizedBox(),
-      // On Android it's false by default
+      leading: IconButton(
+        icon: SvgPicture.asset("assets/icons/arrow-long-left.svg"),
+        //onPressed: () => Navigator.pop(context),
+      ),
       centerTitle: true,
       title: Text("Profile"),
       actions: <Widget>[

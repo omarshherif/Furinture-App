@@ -1,5 +1,7 @@
+//import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/models/Cart.dart';
+import 'package:furniture_app/models/Product.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -17,12 +19,14 @@ class CartCard extends StatelessWidget {
     return Row(
       children: [
         SizedBox(
-          width: 88,
+          width: 150,
           child: AspectRatio(
             aspectRatio: 0.88,
             child: Container(
               padding: EdgeInsets.all(getProportionateScreenWidth(10)),
               decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: NetworkImage(product.image), fit: BoxFit.cover),
                 color: Color(0xFFF5F6F9),
                 borderRadius: BorderRadius.circular(15),
               ),

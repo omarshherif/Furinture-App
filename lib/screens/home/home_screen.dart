@@ -1,4 +1,4 @@
-// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:furniture_app/services/firebase_authentication.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
@@ -17,9 +17,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final FirebaseAuthBrain auth = FirebaseAuthBrain();
+
   @override
   Widget build(BuildContext context) {
     // It help us to  make our UI responsive
+
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
@@ -62,7 +65,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(5.0)),
               color: Colors.white,
               child: ListTile(
-                leading: Icon(Icons.account_circle),
+                leading: Icon(
+                  Icons.account_circle,
+                  color: kPrimaryColor,
+                ),
                 title: Text(
                   'Profile',
                   style: kDrawerTextStyle,
@@ -85,7 +91,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Cart',
                   style: kDrawerTextStyle,
                 ),
-                leading: Icon(Icons.shopping_cart),
+                leading: Icon(
+                  Icons.shopping_cart,
+                  color: kPrimaryColor,
+                ),
                 onTap: () {
                   setState(() {});
 
@@ -103,7 +112,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Settings',
                   style: kDrawerTextStyle,
                 ),
-                leading: Icon(Icons.settings),
+                leading: Icon(
+                  Icons.settings,
+                  color: kPrimaryColor,
+                ),
                 onTap: () {
                   setState(() {});
                   Navigator.pushNamed(context, SettingsScreen.routeName);
@@ -120,10 +132,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Help',
                   style: kDrawerTextStyle,
                 ),
-                leading: Icon(Icons.help),
-                onTap: () {
-                  setState(() {});
-                },
+                leading: Icon(
+                  Icons.help,
+                  color: kPrimaryColor,
+                ),
+                onTap: () {},
               ),
             ),
             Divider(),
@@ -133,12 +146,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(5.0)),
               color: Colors.white,
               child: ListTile(
-                leading: Icon(Icons.exit_to_app),
+                leading: Icon(
+                  Icons.exit_to_app,
+                  color: kPrimaryColor,
+                ),
                 title: Text(
                   'Logout',
                   style: kDrawerTextStyle,
                 ),
-                onTap: () {
+                onTap: () async {
+                  await auth.signOut();
                   Navigator.pushNamed(context, LoginScreen.routeName);
                 },
               ),

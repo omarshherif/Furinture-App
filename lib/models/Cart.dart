@@ -5,14 +5,15 @@ import 'Product.dart';
 class Cart {
   final Product product;
   final int numOfItem;
-
-  Cart({@required this.product, @required this.numOfItem});
+  final String id;
+  Cart({@required this.product, @required this.numOfItem, @required this.id});
 }
 
 // Demo data for our cart
 
 List<Cart> cartItems = [
-  // Cart(product: demoProducts[0], numOfItem: 2),
-  // Cart(product: demoProducts[1], numOfItem: 1),
-  // Cart(product: demoProducts[3], numOfItem: 1),
+  Cart(product: product, numOfItem: 2, id: "1"),
+  Cart(product: product, numOfItem: 1, id: "2"),
+  Cart(product: product, numOfItem: 1, id: "3"),
+  Cart(product: product, numOfItem: 1, id: "4"),
 ];

@@ -60,4 +60,12 @@ class FirebaseAuthBrain {
   //   print('User is currently signed out!');
   //   return false;
   // }
+  Future signOut() async {
+    try {
+      return await auth.signOut();
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }

@@ -6,6 +6,8 @@ import 'package:furniture_app/screens/details/details_screen.dart';
 import 'package:furniture_app/screens/home/home_screen.dart';
 import 'package:furniture_app/screens/otp/otp_screen.dart';
 import 'package:furniture_app/screens/Login/login_screen.dart';
+import 'package:furniture_app/screens/payment/existing-cards.dart';
+import 'package:furniture_app/screens/payment/payment_screen.dart';
 import 'package:furniture_app/screens/profile/profile_screen.dart';
 import 'package:furniture_app/screens/settings/settings.dart';
 
@@ -23,4 +25,6 @@ final Map<String, WidgetBuilder> routes = {
   CartScreen.routeName: (context) => CartScreen(),
   ProfileScreen.routeName: (context) => ProfileScreen(),
   SettingsScreen.routeName: (context) => SettingsScreen(),
+  PaymentScreen.routeName: (context) => PaymentScreen(),
+  ExistingCardsScreen.routeName: (context) => ExistingCardsScreen(),
 };

@@ -1,3 +1,5 @@
+//import 'package:cached_network_image/cached_network_image.dart';
+
 class Product {
   final int price;
   final String id, title, category, image, subTitle, description;

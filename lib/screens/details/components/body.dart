@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:furniture_app/models/Product.dart';
 import 'package:furniture_app/size_config.dart';
 
@@ -37,8 +37,8 @@ class Body extends StatelessWidget {
               right: -defaultSize * 7.5,
               child: Hero(
                 tag: product.id,
-                child: Image.network(
-                  product.image,
+                child: CachedNetworkImage(
+                  imageUrl: product.image,
                   fit: BoxFit.cover,
                   height: defaultSize * 37.8, //378
                   width: defaultSize * 36.4,

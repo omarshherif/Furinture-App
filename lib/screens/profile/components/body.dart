@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/screens/cart/cart_screen.dart';
+import 'package:furniture_app/screens/payment/payment_screen.dart';
 import 'package:furniture_app/size_config.dart';
 import 'info.dart';
 import 'profile_menu_item.dart';
@@ -27,7 +28,7 @@ class Body extends StatelessWidget {
             iconSrc: "assets/icons/payment.svg",
             title: "Payment Method",
             press: () {
-              // Navigator.pushNamed(context, CartScreen.routeName);
+              Navigator.pushNamed(context, PaymentScreen.routeName);
             },
           ),
           ProfileMenuItem(

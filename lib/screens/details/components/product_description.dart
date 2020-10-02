@@ -3,8 +3,9 @@ import 'package:furniture_app/models/Product.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
+//import 'package:furniture_app/models/Cart.dart';
 
-class ProductDescription extends StatelessWidget {
+class ProductDescription extends StatefulWidget {
   const ProductDescription({
     Key key,
     @required this.product,
@@ -15,8 +16,14 @@ class ProductDescription extends StatelessWidget {
   final Function press;
 
   @override
+  _ProductDescriptionState createState() => _ProductDescriptionState();
+}
+
+class _ProductDescriptionState extends State<ProductDescription> {
+  @override
   Widget build(BuildContext context) {
     double defaultSize = SizeConfig.defaultSize;
+
     return Container(
       constraints: BoxConstraints(minHeight: defaultSize * 44),
       padding: EdgeInsets.only(
@@ -37,7 +44,7 @@ class ProductDescription extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              product.subTitle,
+              widget.product.subTitle,
               style: TextStyle(
                 fontSize: defaultSize * 1.8,
                 fontWeight: FontWeight.bold,
@@ -45,7 +52,7 @@ class ProductDescription extends StatelessWidget {
             ),
             SizedBox(height: 4.0),
             Text(
-              product.description,
+              widget.product.description,
               style: TextStyle(
                 color: kTextColor.withOpacity(0.7),
                 height: 1.5,
@@ -60,7 +67,11 @@ class ProductDescription extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50),
                 ),
                 color: kPrimaryColor,
-                onPressed: press,
+                onPressed: () {
+                  setState(() {
+                    // ++cartLength;
+                  });
+                },
                 child: Text(
                   "Add to Cart",
                   style: TextStyle(

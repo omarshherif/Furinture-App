@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:furniture_app/screens/settings/components/assets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -50,14 +49,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         //open edit profile
                       },
                       title: Text(
-                        "John Doe",
+                        "Omar Sherif",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                       leading: CircleAvatar(
-                        backgroundImage: NetworkImage(avatars[0]),
+                        child: CachedNetworkImage(
+                            imageUrl:
+                                'https://firebasestorage.googleapis.com/v0/b/dl-flutter-ui-challenges.appspot.com/o/img%2F1.jpg?alt=media'),
                       ),
                       trailing: Icon(
                         Icons.edit,
