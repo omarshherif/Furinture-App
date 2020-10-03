@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/Screens/Login/login_screen.dart';
-import 'package:furniture_app/Screens/Signup/components/background.dart';
 import 'package:furniture_app/Screens/Signup/components/or_divider.dart';
 import 'package:furniture_app/Screens/Signup/components/social_icon.dart';
 import 'package:furniture_app/components/already_have_an_account_acheck.dart';

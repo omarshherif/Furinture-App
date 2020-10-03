@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/Screens/Login/login_screen.dart';
 import 'package:furniture_app/Screens/Signup/signup_screen.dart';
-import 'package:furniture_app/Screens/Welcome/components/background.dart';
 import 'package:furniture_app/components/rounded_button.dart';
 import 'package:furniture_app/constants.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
   @override
