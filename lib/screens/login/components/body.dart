@@ -21,61 +21,72 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Background(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "LOGIN",
-              style: TextStyle(fontWeight: FontWeight.bold),
+    return MaterialApp(
+      home: Scaffold(
+        resizeToAvoidBottomPadding: false,
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                "assets/images/furniture1.jpg",
+              ),
+              fit: BoxFit.cover,
             ),
-            SizedBox(height: size.height * 0.03),
-            SvgPicture.asset(
-              "assets/icons/login.svg",
-              height: size.height * 0.35,
-            ),
-            SizedBox(height: size.height * 0.03),
-            RoundedInputField(
-              hintText: "Your Email",
-              onChanged: (value) {
-                firebaseAuthBrain.email = value;
-              },
-            ),
-            RoundedPasswordField(
-              onChanged: (value) {
-                firebaseAuthBrain.password = value;
-              },
-            ),
-            RoundedButton(
-              text: "LOGIN",
-              press: () {
-                // Navigator.pushNamed(context, HomeScreen.routeName);
-                firebaseAuthBrain.auth.signOut();
-                firebaseAuthBrain.signInWithEmail();
-                firebaseAuthBrain.auth.authStateChanges().listen((User user) {
-                  if (user != null) {
-                    print('User is signed in!');
-                    Navigator.pushNamed(context, HomeScreen.routeName);
-                    // return true;
-                  }
-                });
-              },
-            ),
-            SizedBox(height: size.height * 0.03),
-            AlreadyHaveAnAccountCheck(
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return SignUpScreen();
-                    },
-                  ),
-                );
-              },
-            ),
-          ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                "LOGIN",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40.0,
+                    color: Colors.white38,
+                    letterSpacing: 5.0),
+              ),
+              SizedBox(height: 50.0),
+              RoundedInputField(
+                hintText: "Your Email",
+                onChanged: (value) {
+                  firebaseAuthBrain.email = value;
+                },
+              ),
+              RoundedPasswordField(
+                onChanged: (value) {
+                  firebaseAuthBrain.password = value;
+                },
+              ),
+              RoundedButton(
+                text: "LOGIN",
+                press: () {
+                  // Navigator.pushNamed(context, HomeScreen.routeName);
+                  firebaseAuthBrain.auth.signOut();
+                  firebaseAuthBrain.signInWithEmail();
+                  firebaseAuthBrain.auth.authStateChanges().listen((User user) {
+                    if (user != null) {
+                      print('User is signed in!');
+                      Navigator.pushNamed(context, HomeScreen.routeName);
+                      // return true;
+                    }
+                  });
+                },
+              ),
+              SizedBox(height: size.height * 0.03),
+              AlreadyHaveAnAccountCheck(
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return SignUpScreen();
+                      },
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

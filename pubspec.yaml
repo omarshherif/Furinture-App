@@ -16,9 +16,9 @@ dependencies:
 
 
   cupertino_icons: ^0.1.3
-  flutter_svg: ^0.18.0 #It help us to use SVG on our app dont use 0.18.*
-  google_fonts: ^1.1.0 # We can use any fonts from google fonts
-  http: ^0.12.2 # It help us to  fatch data from API
+  flutter_svg: ^0.18.0
+  google_fonts: ^1.1.0
+  http: ^0.12.2
   animated_text_kit: ^2.2.0
   firebase_core: ^0.5.0
   firebase_auth: ^0.18.0+1
@@ -29,8 +29,6 @@ dependencies:
   cached_network_image: ^2.3.2+1
   font_awesome_flutter: ^8.8.1
   shared_preferences: ^0.5.12
-  flutter_mobx: ^1.1.0
-  provider: ^4.0.4
 
 
 
@@ -69,5 +67,8 @@ flutter:
     - family: OpenSans
       fonts:
         - asset: assets/fonts/OpenSans.ttf
+    - family: Sansita Swashed
+      fonts:
+        - asset: assets/fonts/Cinzel-VariableFont_wght.ttf
 
 

@@ -24,91 +24,69 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Background(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              height: 45.0,
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  "assets/images/furniture1.jpg",
+                ),
+                fit: BoxFit.cover,
+              ),
             ),
-            Text(
-              "SIGNUP",
-              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: size.height * 0.03),
-            RoundedNInputField(
-              hintText: "Your Name",
-              onChanged: (value) {
-                setState(() {
-                  //firebaseAuthBrain.email = value;
-                });
-              },
-            ),
-            RoundedInputField(
-              hintText: "Your Email",
-              onChanged: (value) {
-                setState(() {
-                  firebaseAuthBrain.email = value;
-                });
-              },
-            ),
-            RoundedPasswordField(
-              onChanged: (value) {
-                setState(() {
-                  firebaseAuthBrain.password = value;
-                });
-              },
-            ),
-            RoundedCPasswordField(
-              onChanged: (value) {
-                setState(() {
-                  //firebaseAuthBrain.password = value;
-                });
-              },
-            ),
-            RoundedButton(
-              text: "SIGNUP",
-              press: () async {
-                firebaseAuthBrain.auth.signOut();
-                await firebaseAuthBrain.registerWithEmail();
-                firebaseAuthBrain.auth.authStateChanges().listen((User user) {
-                  if (user != null) {
-                    print('User is signed in!');
-                    Navigator.pushNamed(context, HomeScreen.routeName);
-                    // return true;
-                  }
-                });
-              },
-            ),
-            SizedBox(height: size.height * 0.03),
-            AlreadyHaveAnAccountCheck(
-              login: false,
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return LoginScreen();
-                    },
-                  ),
-                );
-              },
-            ),
-            OrDivider(),
-            Row(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                SocalIcon(
-                  iconSrc: "assets/icons/smartphone.svg",
-                  press: () {
-                    Navigator.pushNamed(context, EnterNumberScreen.routeName);
+                SizedBox(
+                  height: 110,
+                ),
+                Text(
+                  "SIGNUP",
+                  style: TextStyle(
+                      fontSize: 35.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white38,
+                      letterSpacing: 5.0),
+                ),
+                SizedBox(height: size.height * 0.03),
+                RoundedNInputField(
+                  hintText: "Your Name",
+                  onChanged: (value) {
+                    setState(() {
+                      //firebaseAuthBrain.email = value;
+                    });
                   },
                 ),
-                SocalIcon(
-                  iconSrc: "assets/icons/google.svg",
+                RoundedInputField(
+                  hintText: "Your Email",
+                  onChanged: (value) {
+                    setState(() {
+                      firebaseAuthBrain.email = value;
+                    });
+                  },
+                ),
+                RoundedPasswordField(
+                  onChanged: (value) {
+                    setState(() {
+                      firebaseAuthBrain.password = value;
+                    });
+                  },
+                ),
+                RoundedCPasswordField(
+                  onChanged: (value) {
+                    setState(() {
+                      //firebaseAuthBrain.password = value;
+                    });
+                  },
+                ),
+                RoundedButton(
+                  text: "SIGNUP",
                   press: () async {
-                    await firebaseAuthBrain.signInWithGoogle();
+                    firebaseAuthBrain.auth.signOut();
+                    await firebaseAuthBrain.registerWithEmail();
                     firebaseAuthBrain.auth
                         .authStateChanges()
                         .listen((User user) {
@@ -120,9 +98,51 @@ class _BodyState extends State<Body> {
                     });
                   },
                 ),
+                SizedBox(height: size.height * 0.03),
+                AlreadyHaveAnAccountCheck(
+                  login: false,
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return LoginScreen();
+                        },
+                      ),
+                    );
+                  },
+                ),
+                OrDivider(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SocalIcon(
+                      iconSrc: "assets/icons/smartphone.svg",
+                      press: () {
+                        Navigator.pushNamed(
+                            context, EnterNumberScreen.routeName);
+                      },
+                    ),
+                    SocalIcon(
+                      iconSrc: "assets/icons/google.svg",
+                      press: () async {
+                        await firebaseAuthBrain.signInWithGoogle();
+                        firebaseAuthBrain.auth
+                            .authStateChanges()
+                            .listen((User user) {
+                          if (user != null) {
+                            print('User is signed in!');
+                            Navigator.pushNamed(context, HomeScreen.routeName);
+                            // return true;
+                          }
+                        });
+                      },
+                    ),
+                  ],
+                )
               ],
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );

@@ -11,21 +11,29 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     // This size provide us total height and width of our screen
-    return Background(
-      child: SingleChildScrollView(
+    return MaterialApp(
+        home: Scaffold(
+            body: Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/furniture.jpg"),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Text(
-              "WELCOME",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              "Welcome",
+              style: TextStyle(
+                  color: Colors.white70,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 40.0,
+                  letterSpacing: 4.0,
+                  fontFamily: 'Cinzel-VariableFont_wght'),
             ),
-            SizedBox(height: size.height * 0.05),
-            SvgPicture.asset(
-              "assets/icons/chat.svg",
-              height: size.height * 0.45,
-            ),
-            SizedBox(height: size.height * 0.05),
+            SizedBox(height: 120),
             RoundedButton(
               text: "LOGIN",
               press: () {
@@ -57,6 +65,6 @@ class Body extends StatelessWidget {
           ],
         ),
       ),
-    );
+    )));
   }
 }
