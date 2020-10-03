@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
               currentAccountPicture: GestureDetector(
                 child: CircleAvatar(
                   backgroundColor: Colors.white,
-                  backgroundImage: AssetImage("assets/images/pic.png"),
+                  backgroundImage: AssetImage("assets/images/user.png"),
                 ),
               ),
               decoration: BoxDecoration(

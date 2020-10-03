@@ -12,7 +12,7 @@ class Body extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Info(
-            image: "assets/images/pic.png",
+            image: "assets/images/user.png",
             name: "Omar Sherif",
             email: "omarshherif@yahoo.com",
           ),

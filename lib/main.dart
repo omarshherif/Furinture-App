@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/Welcome/welcome_screen.dart';
+//import 'package:furniture_app/screens/otp/pages/splash_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'routes.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: WelcomeScreen.routeName,
+      initialRoute:WelcomeScreen.routeName,
       routes: routes,
 
       localizationsDelegates: translator.delegates, // Android + iOS Delegates

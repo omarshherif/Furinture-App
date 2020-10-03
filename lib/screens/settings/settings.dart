@@ -56,9 +56,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         ),
                       ),
                       leading: CircleAvatar(
-                        child: CachedNetworkImage(
-                            imageUrl:
-                                'https://firebasestorage.googleapis.com/v0/b/dl-flutter-ui-challenges.appspot.com/o/img%2F1.jpg?alt=media'),
+                        backgroundColor: Colors.white,
+                        backgroundImage: AssetImage("assets/images/user.png"),
                       ),
                       trailing: Icon(
                         Icons.edit,

@@ -29,6 +29,8 @@ dependencies:
   cached_network_image: ^2.3.2+1
   font_awesome_flutter: ^8.8.1
   shared_preferences: ^0.5.12
+  flutter_mobx: ^1.1.0
+  provider: ^4.0.4
 
 
 
