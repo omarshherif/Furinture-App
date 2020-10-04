@@ -3,6 +3,7 @@ import 'package:furniture_app/Screens/Login/login_screen.dart';
 import 'package:furniture_app/Screens/Signup/signup_screen.dart';
 import 'package:furniture_app/components/rounded_button.dart';
 import 'package:furniture_app/constants.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -23,7 +24,7 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Text(
-              "Welcome",
+              translator.translate('Welcome'),
               style: TextStyle(
                   color: Colors.white70,
                   fontWeight: FontWeight.bold,
@@ -33,7 +34,7 @@ class Body extends StatelessWidget {
             ),
             SizedBox(height: 120),
             RoundedButton(
-              text: "LOGIN",
+              text: translator.translate('Sign In'),
               press: () {
                 Navigator.push(
                   context,
@@ -46,7 +47,7 @@ class Body extends StatelessWidget {
               },
             ),
             RoundedButton(
-              text: "SIGN UP",
+              text: translator.translate('SIGNUP'),
               color: kPrimaryLightColor,
               textColor: Colors.black,
               press: () {

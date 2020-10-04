@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/models/Cart.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 import 'components/body.dart';
 import 'components/check_out_card.dart';
 
@@ -26,11 +27,11 @@ class CartScreen extends StatelessWidget {
       title: Column(
         children: [
           Text(
-            "Your Cart",
+            translator.translate('Your Cart'),
             style: TextStyle(color: Colors.black),
           ),
           Text(
-            "${cartItems.length} items",
+            "${cartItems.length} " + translator.translate('items'),
             style: Theme.of(context).textTheme.caption,
           ),
         ],

@@ -4,10 +4,10 @@ import 'package:furniture_app/components/already_have_an_account_acheck.dart';
 import 'package:furniture_app/components/rounded_button.dart';
 import 'package:furniture_app/components/rounded_input_field.dart';
 import 'package:furniture_app/components/rounded_password_field.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/screens/home/home_screen.dart';
 import 'package:furniture_app/services/firebase_authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -37,7 +37,7 @@ class _BodyState extends State<Body> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
-                "LOGIN",
+                translator.translate('LOGIN'),
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 40.0,
@@ -46,7 +46,7 @@ class _BodyState extends State<Body> {
               ),
               SizedBox(height: 50.0),
               RoundedInputField(
-                hintText: "Your Email",
+                hintText: translator.translate('Your Email'),
                 onChanged: (value) {
                   firebaseAuthBrain.email = value;
                 },
@@ -57,7 +57,7 @@ class _BodyState extends State<Body> {
                 },
               ),
               RoundedButton(
-                text: "LOGIN",
+                text: translator.translate('LOGIN'),
                 press: () {
                   // Navigator.pushNamed(context, HomeScreen.routeName);
                   firebaseAuthBrain.auth.signOut();

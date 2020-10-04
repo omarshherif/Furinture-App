@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute:WelcomeScreen.routeName,
+      initialRoute: WelcomeScreen.routeName,
       routes: routes,
 
       localizationsDelegates: translator.delegates, // Android + iOS Delegates

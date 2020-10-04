@@ -8,6 +8,7 @@ import 'package:furniture_app/screens/home/components/body.dart';
 import 'package:furniture_app/screens/profile/profile_screen.dart';
 import 'package:furniture_app/screens/settings/settings.dart';
 import 'package:furniture_app/size_config.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = "/home";
@@ -70,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: kPrimaryColor,
                 ),
                 title: Text(
-                  'Profile',
+                  translator.translate('Profile'),
                   style: kDrawerTextStyle,
                 ),
                 onTap: () {
@@ -88,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.white,
               child: ListTile(
                 title: Text(
-                  'Cart',
+                  translator.translate('Cart'),
                   style: kDrawerTextStyle,
                 ),
                 leading: Icon(
@@ -109,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.white,
               child: ListTile(
                 title: Text(
-                  'Settings',
+                  translator.translate('Settings'),
                   style: kDrawerTextStyle,
                 ),
                 leading: Icon(
@@ -129,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.white,
               child: ListTile(
                 title: Text(
-                  'Help',
+                  translator.translate('Help'),
                   style: kDrawerTextStyle,
                 ),
                 leading: Icon(
@@ -151,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: kPrimaryColor,
                 ),
                 title: Text(
-                  'Logout',
+                  translator.translate('Logout'),
                   style: kDrawerTextStyle,
                 ),
                 onTap: () async {

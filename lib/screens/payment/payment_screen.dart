@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/payment/existing-cards.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 
 class PaymentScreen extends StatefulWidget {
   static String routeName = "/payment";
@@ -16,7 +17,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         //payViaNewCard(context);
         break;
       case 1:
-        Navigator.pushNamed(context, ExistingCardsScreen.routeName);
+        //Navigator.pushNamed(context, ExistingCardsScreen.routeName);
         break;
     }
   }
@@ -26,7 +27,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
-        title: Center(child: Text('Payment Method')),
+        title: Center(child: Text(translator.translate('Payment Method'))),
       ),
       body: Container(
         padding: EdgeInsets.all(20),
@@ -38,11 +39,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
               switch (index) {
                 case 0:
                   icon = Icon(Icons.add_circle, color: kPrimaryColor);
-                  text = Text('Pay via new card');
+                  text = translator.translate('Pay via new card') as Text;
                   break;
                 case 1:
                   icon = Icon(Icons.credit_card, color: kPrimaryColor);
-                  text = Text('Pay via existing card');
+                  text = translator.translate('Pay via existing card') as Text;
+
                   break;
               }
 

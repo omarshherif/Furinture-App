@@ -12,6 +12,7 @@ import 'package:furniture_app/screens/home/home_screen.dart';
 import 'package:furniture_app/screens/otp/enterNum_screen.dart';
 import 'package:furniture_app/services/firebase_authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -25,6 +26,7 @@ class _BodyState extends State<Body> {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomPadding: false,
         body: SingleChildScrollView(
           child: Container(
             decoration: BoxDecoration(
@@ -43,7 +45,7 @@ class _BodyState extends State<Body> {
                   height: 110,
                 ),
                 Text(
-                  "SIGNUP",
+                  translator.translate('SIGNUP'),
                   style: TextStyle(
                       fontSize: 35.0,
                       fontWeight: FontWeight.bold,
@@ -52,7 +54,7 @@ class _BodyState extends State<Body> {
                 ),
                 SizedBox(height: size.height * 0.03),
                 RoundedNInputField(
-                  hintText: "Your Name",
+                  hintText: translator.translate('Your Name'),
                   onChanged: (value) {
                     setState(() {
                       //firebaseAuthBrain.email = value;
@@ -60,7 +62,7 @@ class _BodyState extends State<Body> {
                   },
                 ),
                 RoundedInputField(
-                  hintText: "Your Email",
+                  hintText: translator.translate('Your Email'),
                   onChanged: (value) {
                     setState(() {
                       firebaseAuthBrain.email = value;
@@ -82,7 +84,7 @@ class _BodyState extends State<Body> {
                   },
                 ),
                 RoundedButton(
-                  text: "SIGNUP",
+                  text: translator.translate('SIGNUP'),
                   press: () async {
                     firebaseAuthBrain.auth.signOut();
                     await firebaseAuthBrain.registerWithEmail();

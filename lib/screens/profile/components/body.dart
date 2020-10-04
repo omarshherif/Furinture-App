@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/screens/cart/cart_screen.dart';
 import 'package:furniture_app/screens/payment/payment_screen.dart';
+import 'package:furniture_app/screens/profile/profile_screen.dart';
 import 'package:furniture_app/size_config.dart';
 import 'info.dart';
 import 'profile_menu_item.dart';
+
+import 'package:localize_and_translate/localize_and_translate.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -19,26 +22,32 @@ class Body extends StatelessWidget {
           SizedBox(height: SizeConfig.defaultSize * 2), //20
           ProfileMenuItem(
             iconSrc: "assets/icons/cart.svg",
-            title: "Your Cart",
+            title: translator.translate('Your Cart'),
             press: () {
               Navigator.pushNamed(context, CartScreen.routeName);
             },
           ),
           ProfileMenuItem(
             iconSrc: "assets/icons/payment.svg",
-            title: "Payment Method",
+            title: translator.translate('Payment Method'),
             press: () {
               Navigator.pushNamed(context, PaymentScreen.routeName);
             },
           ),
           ProfileMenuItem(
             iconSrc: "assets/icons/language.svg",
-            title: "Change Language",
-            press: () {},
+            title: translator.translate('Change Language'),
+            press: () {
+              translator.setNewLanguage(
+                context,
+                newLanguage: translator.currentLanguage == 'ar' ? 'en' : 'ar',
+                restart: true,
+              );
+            },
           ),
           ProfileMenuItem(
             iconSrc: "assets/icons/help.svg",
-            title: "Help",
+            title: translator.translate('Help'),
             press: () {},
           ),
         ],

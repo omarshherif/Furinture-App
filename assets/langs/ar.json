@@ -1,6 +1,29 @@
 {
-  "appTitle": "تطبيق تجريبى",
-  "buttonTitle": "Arabic",
-  "googleTest": "تجربة ترجمة جوجل",
-  "textArea": "هذا مجرد نموذج للتأكد من اداء الأداة"
+  "تطبيق اثاث": "Furniture App",
+  "تسجيل دخول": "Sign In",
+  "تسجيل": "SIGNUP",
+  "مرحبا": "Welcome",
+  "الدفع بواسطة بطاقة جديدة": "Pay via new card",
+  "الدفع بواسطة بطاقة موجودة": "Pay via existing card",
+  "طريقة الدفع": "Payment Method",
+  "الملف الشخصي": "Profile",
+  "تعديل": "Edit",
+  "أدخل بريدك الألكتروني": "Your Email",
+  "تسجيل دخول": "LOGIN",
+  "تغير اللغة": "Change Language",
+  "مساعدة": "Help",
+  "عربتك": "Your Cart",
+  "أدخل كلمة السر": "Password",
+  "تمتلك حساب ؟": "Already have an Account ? ",
+  "لا تمتلك حساب ؟": "Don’t have an Account ? ",
+  "تسجيل": "Sign Up",
+  "أدخل أسمك": "Your Name",
+  "أو": "OR",
+  "تأكيد كلمة السر":"Confirm Password",
+  "منتج": "items",
+  "العربة": "Cart",
+  "الأعدادت": "Settings",
+  "تسجيل خروج": "Logout"
+
+
 }

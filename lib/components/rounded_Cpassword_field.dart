@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 import 'text_field_container.dart';
 import 'package:furniture_app/constants.dart';
 
@@ -17,7 +18,7 @@ class RoundedCPasswordField extends StatelessWidget {
         onChanged: onChanged,
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
-          hintText: "Confirm Password",
+          hintText: translator.translate('Confirm Password'),
           icon: Icon(
             Icons.lock,
             color: kPrimaryColor,
