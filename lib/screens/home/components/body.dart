@@ -3,12 +3,12 @@ import 'package:furniture_app/components/title_text.dart';
 import 'package:furniture_app/services/fetchCategories.dart';
 import 'package:furniture_app/services/fetchProducts.dart';
 import 'package:furniture_app/size_config.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 
 import 'categories.dart';
 import 'recommond_products.dart';
 
 class Body extends StatelessWidget {
-  static const String id = 'home_screen';
   @override
   Widget build(BuildContext context) {
     double defaultSize = SizeConfig.defaultSize;
@@ -21,7 +21,7 @@ class Body extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(defaultSize * 2), //20
               child: TitleText(
-                title: "Browse by Categories",
+                title: translator.translate('Browse by Categories'),
               ),
             ),
             FutureBuilder(
@@ -33,7 +33,8 @@ class Body extends StatelessWidget {
             Divider(height: 5),
             Padding(
               padding: EdgeInsets.all(defaultSize * 2), //20
-              child: TitleText(title: "Recommands For You"),
+              child:
+                  TitleText(title: translator.translate('Recommanded For You')),
             ),
             // Right Now product is our demo product
             FutureBuilder(

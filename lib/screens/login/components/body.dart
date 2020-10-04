@@ -41,7 +41,7 @@ class _BodyState extends State<Body> {
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 40.0,
-                    color: Colors.white38,
+                    color: Colors.white.withOpacity(0.6),
                     letterSpacing: 5.0),
               ),
               SizedBox(height: 50.0),

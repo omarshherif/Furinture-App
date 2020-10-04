@@ -41,6 +41,7 @@ class Body extends StatelessWidget {
               translator.setNewLanguage(
                 context,
                 newLanguage: translator.currentLanguage == 'ar' ? 'en' : 'ar',
+                remember: true,
                 restart: true,
               );
             },

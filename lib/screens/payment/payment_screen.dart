@@ -17,7 +17,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         //payViaNewCard(context);
         break;
       case 1:
-        //Navigator.pushNamed(context, ExistingCardsScreen.routeName);
+        Navigator.pushNamed(context, ExistingCardsScreen.routeName);
         break;
     }
   }
@@ -27,7 +27,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
-        title: Center(child: Text(translator.translate('Payment Method'))),
+        title: Center(
+          child: Text(
+            translator.translate('Payment Method'),
+          ),
+        ),
       ),
       body: Container(
         padding: EdgeInsets.all(20),

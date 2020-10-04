@@ -26,7 +26,7 @@ class Body extends StatelessWidget {
             Text(
               translator.translate('Welcome'),
               style: TextStyle(
-                  color: Colors.white70,
+                  color: kPrimaryColor.withOpacity(0.5),
                   fontWeight: FontWeight.bold,
                   fontSize: 40.0,
                   letterSpacing: 4.0,
@@ -35,6 +35,7 @@ class Body extends StatelessWidget {
             SizedBox(height: 120),
             RoundedButton(
               text: translator.translate('Sign In'),
+              color: kPrimaryColor.withOpacity(0.6),
               press: () {
                 Navigator.push(
                   context,
@@ -48,7 +49,7 @@ class Body extends StatelessWidget {
             ),
             RoundedButton(
               text: translator.translate('SIGNUP'),
-              color: kPrimaryLightColor,
+              color: kPrimaryLightColor.withOpacity(0.4),
               textColor: Colors.black,
               press: () {
                 Navigator.push(
