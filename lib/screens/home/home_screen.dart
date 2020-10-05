@@ -25,146 +25,149 @@ class _HomeScreenState extends State<HomeScreen> {
     // It help us to  make our UI responsive
 
     SizeConfig().init(context);
-    return Scaffold(
-      appBar: AppBar(
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(
-                Icons.menu,
-                color: Color(0xFF171717),
-              ),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
-        ),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            UserAccountsDrawerHeader(
-              accountName: Text("Omar Sherif"),
-              accountEmail: Text("omarshherif@yahoo.com"),
-              currentAccountPicture: GestureDetector(
-                child: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  backgroundImage: AssetImage("assets/images/user.png"),
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomPadding: false,
+        appBar: AppBar(
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(
+                  Icons.menu,
+                  color: Color(0xFF171717),
                 ),
-              ),
-              decoration: BoxDecoration(
-                color: Color(0xFF6F35A5),
-              ),
-            ),
-            Card(
-              elevation: 2.0,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.0)),
-              color: Colors.white,
-              child: ListTile(
-                leading: Icon(
-                  Icons.account_circle,
-                  color: kPrimaryColor,
-                ),
-                title: Text(
-                  translator.translate('Profile'),
-                  style: kDrawerTextStyle,
-                ),
-                onTap: () {
-                  setState(() {
-                    //_seleted = true;
-                  });
-                  Navigator.pushNamed(context, ProfileScreen.routeName);
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
                 },
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              );
+            },
+          ),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                accountName: Text("Omar Sherif"),
+                accountEmail: Text("omarshherif@yahoo.com"),
+                currentAccountPicture: GestureDetector(
+                  child: CircleAvatar(
+                    backgroundColor: Colors.white,
+                    backgroundImage: AssetImage("assets/images/user.png"),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Color(0xFF6F35A5),
+                ),
               ),
-            ),
-            Card(
-              elevation: 2.0,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.0)),
-              color: Colors.white,
-              child: ListTile(
-                title: Text(
-                  translator.translate('Cart'),
-                  style: kDrawerTextStyle,
+              Card(
+                elevation: 2.0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0)),
+                color: Colors.white,
+                child: ListTile(
+                  leading: Icon(
+                    Icons.account_circle,
+                    color: kPrimaryColor,
+                  ),
+                  title: Text(
+                    translator.translate('Profile'),
+                    style: kDrawerTextStyle,
+                  ),
+                  onTap: () {
+                    setState(() {
+                      //_seleted = true;
+                    });
+                    Navigator.pushNamed(context, ProfileScreen.routeName);
+                  },
                 ),
-                leading: Icon(
-                  Icons.shopping_cart,
-                  color: kPrimaryColor,
-                ),
-                onTap: () {
-                  setState(() {});
+              ),
+              Card(
+                elevation: 2.0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0)),
+                color: Colors.white,
+                child: ListTile(
+                  title: Text(
+                    translator.translate('Cart'),
+                    style: kDrawerTextStyle,
+                  ),
+                  leading: Icon(
+                    Icons.shopping_cart,
+                    color: kPrimaryColor,
+                  ),
+                  onTap: () {
+                    setState(() {});
 
-                  Navigator.pushNamed(context, CartScreen.routeName);
-                },
+                    Navigator.pushNamed(context, CartScreen.routeName);
+                  },
+                ),
               ),
-            ),
-            Card(
-              elevation: 2.0,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.0)),
-              color: Colors.white,
-              child: ListTile(
-                title: Text(
-                  translator.translate('Settings'),
-                  style: kDrawerTextStyle,
+              Card(
+                elevation: 2.0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0)),
+                color: Colors.white,
+                child: ListTile(
+                  title: Text(
+                    translator.translate('Settings'),
+                    style: kDrawerTextStyle,
+                  ),
+                  leading: Icon(
+                    Icons.settings,
+                    color: kPrimaryColor,
+                  ),
+                  onTap: () {
+                    setState(() {});
+                    Navigator.pushNamed(context, SettingsScreen.routeName);
+                  },
                 ),
-                leading: Icon(
-                  Icons.settings,
-                  color: kPrimaryColor,
-                ),
-                onTap: () {
-                  setState(() {});
-                  Navigator.pushNamed(context, SettingsScreen.routeName);
-                },
               ),
-            ),
-            Card(
-              elevation: 2.0,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.0)),
-              color: Colors.white,
-              child: ListTile(
-                title: Text(
-                  translator.translate('Help'),
-                  style: kDrawerTextStyle,
+              Card(
+                elevation: 2.0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0)),
+                color: Colors.white,
+                child: ListTile(
+                  title: Text(
+                    translator.translate('Help'),
+                    style: kDrawerTextStyle,
+                  ),
+                  leading: Icon(
+                    Icons.help,
+                    color: kPrimaryColor,
+                  ),
+                  onTap: () {},
                 ),
-                leading: Icon(
-                  Icons.help,
-                  color: kPrimaryColor,
-                ),
-                onTap: () {},
               ),
-            ),
-            Divider(),
-            Card(
-              elevation: 2.0,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.0)),
-              color: Colors.white,
-              child: ListTile(
-                leading: Icon(
-                  Icons.exit_to_app,
-                  color: kPrimaryColor,
+              Divider(),
+              Card(
+                elevation: 2.0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0)),
+                color: Colors.white,
+                child: ListTile(
+                  leading: Icon(
+                    Icons.exit_to_app,
+                    color: kPrimaryColor,
+                  ),
+                  title: Text(
+                    translator.translate('Logout'),
+                    style: kDrawerTextStyle,
+                  ),
+                  onTap: () async {
+                    await auth.signOut();
+                    Navigator.pushNamed(context, LoginScreen.routeName);
+                  },
                 ),
-                title: Text(
-                  translator.translate('Logout'),
-                  style: kDrawerTextStyle,
-                ),
-                onTap: () async {
-                  await auth.signOut();
-                  Navigator.pushNamed(context, LoginScreen.routeName);
-                },
               ),
-            ),
-          ],
+            ],
+          ),
         ),
+        body: Body(),
       ),
-      body: Body(),
     );
   }
 }

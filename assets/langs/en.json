@@ -28,7 +28,7 @@
   "تصفح حسب الفئات": "Browse by Categories",
   "تغير المكان": "Change Location",
   "كرسي": "CHAIR",
-  "الدفع": "Check Out",
+  "دفع": "Check Out",
   "المجموع": "Total",
   "تغير كلمة السر": "Change Password",
   "إعدادات الإشعار": "Notification Settings",
@@ -37,6 +37,14 @@
   "تلقي إشعار العرض": "Received Offer Notification",
   "تلقي تحديثات التطبيق": "Received App Updates",
   "أضف إلى العربة": "Add to Cart",
-  "هذا الكرسي بذراعين هو قطعة أثاث أنيقة وعملية. إنه مناسب للزيارات العائلية والحفلات مع الأصدقاء ومثالي للاسترخاء أمام التلفزيون بعد العمل الشاق.":"This armchair is an elegant and functional piece of furniture. It is suitable for family visits and parties with friends and perfect for relaxing in front of the TV after hard work."
+  "هذا الكرسي بذراعين هو قطعة أثاث أنيقة وعملية. إنه مناسب للزيارات العائلية والحفلات مع الأصدقاء ومثالي للاسترخاء أمام التلفزيون بعد العمل الشاق.":"This armchair is an elegant and functional piece of furniture. It is suitable for family visits and parties with friends and perfect for relaxing in front of the TV after hard work.",
+  "التالي": "Next",
+  "سوف نرسل لك ": "We will send you an ",
+  "كلمة السر لمرة واحدة ": "One Time Password ",
+  "على رقم هاتفك هذا ": "on this mobile number ",
+  "تم": "Confirm",
+  "أدخل رمز التحقق المكون من ٦ أرقام المرسل إلى رقمك": "Enter 6 digits verification code sent to your number",
+  "الألوان المتاحة": "Available Colors",
+  "يبداء من": "From"
 
 }

@@ -17,7 +17,7 @@
   "Password": "أدخل كلمة السر",
   "Already have an Account ? ": "تمتلك حساب ؟",
   "Don’t have an Account ? ": "لا تمتلك حساب ؟",
-  "Sign Up": "تسجيل دخول",
+  "Sign Up": "تسجيل",
   "Your Name": "أدخل أسمك",
   "OR": "أو",
   "Confirm Password":"تأكيد كلمة السر",
@@ -29,7 +29,7 @@
   "Browse by Categories": "تصفح حسب الفئات",
   "Change Location": "تغير المكان",
   "CHAIR": "كرسي",
-  "Check Out": "الدفع",
+  "Check Out": "دفع",
   "Total": "المجموع",
   "Change Password": "تغير كلمة السر",
   "Notification Settings": "إعدادات الإشعار",
@@ -38,7 +38,16 @@
   "Received Offer Notification": "تلقي إشعار العرض",
   "Received App Updates": "تلقي تحديثات التطبيق",
   "Add to Cart": "أضف إلى العربة",
-  "This armchair is an elegant and functional piece of furniture. It is suitable for family visits and parties with friends and perfect for relaxing in front of the TV after hard work.":"هذا الكرسي بذراعين هو قطعة أثاث أنيقة وعملية. إنه مناسب للزيارات العائلية والحفلات مع الأصدقاء ومثالي للاسترخاء أمام التلفزيون بعد العمل الشاق."
+  "This armchair is an elegant and functional piece of furniture. It is suitable for family visits and parties with friends and perfect for relaxing in front of the TV after hard work.":"هذا الكرسي بذراعين هو قطعة أثاث أنيقة وعملية. إنه مناسب للزيارات العائلية والحفلات مع الأصدقاء ومثالي للاسترخاء أمام التلفزيون بعد العمل الشاق.",
+  "Next": "التالي",
+  "We will send you an ": "سوف نرسل لك ",
+  "One Time Password ": "كلمة السر لمرة واحدة",
+  "on this mobile number ": "على رقم هاتفك هذا",
+  "Confirm": "تم",
+  "Enter 6 digits verification code sent to your number": "أدخل رمز التحقق المكون من ٦ أرقام المرسل إلى رقمك",
+  "Available Colors": "الألوان المتاحة",
+  "From": "يبداء من"
+
 
 
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 // import 'package:numeric_keyboard/numeric_keyboard.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -83,8 +84,9 @@ class _OtpScreenState extends State<OtpScreen> {
                           Container(
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 20),
-                              child: const Text(
-                                  'Enter 6 digits verification code sent to your number',
+                              child: Text(
+                                  translator.translate(
+                                      'Enter 6 digits verification code sent to your number'),
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 26,
@@ -125,8 +127,8 @@ class _OtpScreenState extends State<OtpScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-                              const Text(
-                                'Confirm',
+                              Text(
+                                translator.translate('Confirm'),
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 16),
                               ),
@@ -137,7 +139,7 @@ class _OtpScreenState extends State<OtpScreen> {
                                       BorderRadius.all(Radius.circular(20)),
                                   color: kPrimaryColor,
                                 ),
-                                child: const Icon(
+                                child: Icon(
                                   Icons.arrow_forward_ios,
                                   color: Colors.white,
                                   size: 16,

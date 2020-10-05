@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:furniture_app/models/Product.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -40,7 +41,7 @@ class ProductInfo extends StatelessWidget {
               ),
             ),
             SizedBox(height: defaultSize * 2),
-            Text("Form", style: lightTextStyle),
+            Text(translator.translate('From'), style: lightTextStyle),
             Text(
               "\$${product.price}",
               style: TextStyle(
@@ -50,7 +51,8 @@ class ProductInfo extends StatelessWidget {
               ),
             ),
             SizedBox(height: defaultSize * 2), //20
-            Text("Available Colors", style: lightTextStyle),
+            Text(translator.translate('Available Colors'),
+                style: lightTextStyle),
             Row(
               children: <Widget>[
                 buildColorBox(

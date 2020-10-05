@@ -12,7 +12,7 @@ class Cart {
 // Demo data for our cart
 
 List<Cart> cartItems = [
-  Cart(product: product, numOfItem: 2, id: "1"),
+  Cart(product: product, numOfItem: 2, id: "2"),
   Cart(product: product, numOfItem: 1, id: "2"),
   Cart(product: product, numOfItem: 1, id: "3"),
   Cart(product: product, numOfItem: 1, id: "4"),

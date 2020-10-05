@@ -20,8 +20,8 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return MaterialApp(
-      home: Scaffold(
+    return SafeArea(
+      child: Scaffold(
         resizeToAvoidBottomPadding: false,
         body: Container(
           decoration: BoxDecoration(

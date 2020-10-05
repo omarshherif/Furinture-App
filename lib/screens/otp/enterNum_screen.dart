@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/otp/otp_screen.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 
 class EnterNumberScreen extends StatefulWidget {
   static String routeName = "/enterNum";
@@ -57,12 +58,15 @@ class _EnterNumberScreenState extends State<EnterNumberScreen> {
                           ),
                         ),
                         Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            child: const Text('Furniture App',
-                                style: TextStyle(
-                                    color: kPrimaryColor,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w800)))
+                          margin: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Text(
+                            translator.translate('Furniture App'),
+                            style: TextStyle(
+                                color: kPrimaryColor,
+                                fontSize: 30,
+                                fontWeight: FontWeight.w800),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -75,17 +79,20 @@ class _EnterNumberScreenState extends State<EnterNumberScreen> {
                             margin: const EdgeInsets.symmetric(horizontal: 10),
                             child: RichText(
                               textAlign: TextAlign.center,
-                              text: const TextSpan(children: <TextSpan>[
+                              text: TextSpan(children: <TextSpan>[
                                 TextSpan(
-                                    text: 'We will send you an ',
+                                    text: translator
+                                        .translate('We will send you an '),
                                     style: TextStyle(color: kPrimaryColor)),
                                 TextSpan(
-                                    text: 'One Time Password ',
+                                    text: translator
+                                        .translate('One Time Password '),
                                     style: TextStyle(
                                         color: kPrimaryColor,
                                         fontWeight: FontWeight.bold)),
                                 TextSpan(
-                                    text: 'on this mobile number',
+                                    text: translator
+                                        .translate('on this mobile number '),
                                     style: TextStyle(color: kPrimaryColor)),
                               ]),
                             )),
@@ -127,7 +134,7 @@ class _EnterNumberScreenState extends State<EnterNumberScreen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    'Next',
+                                    translator.translate('Next'),
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 16),
                                   ),
