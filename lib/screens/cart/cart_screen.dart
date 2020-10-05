@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/models/Cart.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'components/body.dart';
 import 'components/check_out_card.dart';
@@ -19,7 +18,10 @@ class CartScreen extends StatelessWidget {
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        icon: SvgPicture.asset("assets/icons/arrow-long-left.svg"),
+        icon: Icon(
+          Icons.arrow_back,
+          color: Colors.black,
+        ),
         onPressed: () {
           Navigator.pop(context);
         },

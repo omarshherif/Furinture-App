@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:furniture_app/models/Product.dart';
 import 'package:furniture_app/size_config.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 
 import 'product_description.dart';
 import 'product_info.dart';
@@ -24,7 +25,7 @@ class Body extends StatelessWidget {
           children: <Widget>[
             ProductInfo(product: product),
             Positioned(
-              top: defaultSize * 37.5,
+              top: defaultSize * 37,
               left: 0,
               right: 0,
               child: ProductDescription(
@@ -34,7 +35,9 @@ class Body extends StatelessWidget {
             ),
             Positioned(
               top: defaultSize * 9.5,
-              right: -defaultSize * 7.5,
+              right: translator.currentLanguage == 'en'
+                  ? -defaultSize * 3.5
+                  : defaultSize * 8.5,
               child: Hero(
                 tag: product.id,
                 child: CachedNetworkImage(

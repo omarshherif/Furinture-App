@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 
 class SettingsScreen extends StatefulWidget {
   static String routeName = "/settings";
@@ -27,7 +28,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.transparent,
           title: Text(
-            'Settings',
+            translator.translate('Settings'),
             style: TextStyle(color: Colors.black),
           ),
         ),
@@ -78,8 +79,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             Icons.lock_outline,
                             color: kPrimaryColor,
                           ),
-                          title: Text("Change Password"),
-                          trailing: Icon(Icons.keyboard_arrow_right),
+                          title: Text(translator.translate('Change Password')),
+                          trailing: Icon(translator.currentLanguage == 'en'
+                              ? Icons.keyboard_arrow_right
+                              : Icons.keyboard_arrow_left),
                           onTap: () {
                             //open change password
                           },
@@ -90,10 +93,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             FontAwesomeIcons.language,
                             color: kPrimaryColor,
                           ),
-                          title: Text("Change Language"),
-                          trailing: Icon(Icons.keyboard_arrow_right),
+                          title: Text(translator.translate('Change Language')),
+                          trailing: Icon(translator.currentLanguage == 'en'
+                              ? Icons.keyboard_arrow_right
+                              : Icons.keyboard_arrow_left),
                           onTap: () {
-                            //open change language
+                            setState(() {
+                              translator.setNewLanguage(
+                                context,
+                                newLanguage: translator.currentLanguage == 'ar'
+                                    ? 'en'
+                                    : 'ar',
+                                remember: true,
+                                restart: true,
+                              );
+                            });
                           },
                         ),
                         _buildDivider(),
@@ -102,8 +116,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             Icons.location_on,
                             color: kPrimaryColor,
                           ),
-                          title: Text("Change Location"),
-                          trailing: Icon(Icons.keyboard_arrow_right),
+                          title: Text(translator.translate('Change Location')),
+                          trailing: Icon(translator.currentLanguage == 'en'
+                              ? Icons.keyboard_arrow_right
+                              : Icons.keyboard_arrow_left),
                           onTap: () {
                             //open change location
                           },
@@ -113,7 +129,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   const SizedBox(height: 20.0),
                   Text(
-                    "Notification Settings",
+                    translator.translate('Notification Settings'),
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
@@ -124,28 +140,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     activeColor: kPrimaryColor,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
-                    title: Text("Received notification"),
+                    title: Text(translator.translate('Received notification')),
                     onChanged: (val) {},
                   ),
                   SwitchListTile(
                     activeColor: kPrimaryColor,
                     contentPadding: const EdgeInsets.all(0),
                     value: false,
-                    title: Text("Received newsletter"),
+                    title: Text(translator.translate('Received newsletter')),
                     onChanged: null,
                   ),
                   SwitchListTile(
                     activeColor: kPrimaryColor,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
-                    title: Text("Received Offer Notification"),
+                    title: Text(
+                        translator.translate('Received Offer Notification')),
                     onChanged: (val) {},
                   ),
                   SwitchListTile(
                     activeColor: kPrimaryColor,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
-                    title: Text("Received App Updates"),
+                    title: Text(translator.translate('Received App Updates')),
                     onChanged: (value) {},
                   ),
                   const SizedBox(height: 60.0),

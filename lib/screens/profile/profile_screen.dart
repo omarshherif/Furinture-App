@@ -3,7 +3,6 @@ import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/profile/components/body.dart';
 import 'package:furniture_app/size_config.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfileScreen extends StatelessWidget {
   static String routeName = "/profile";
@@ -20,7 +19,7 @@ class ProfileScreen extends StatelessWidget {
     return AppBar(
       backgroundColor: kPrimaryColor,
       leading: IconButton(
-        icon: SvgPicture.asset("assets/icons/arrow-long-left.svg"),
+        icon: Icon(Icons.arrow_back),
         color: Colors.white,
         onPressed: () {
           Navigator.pop(context);

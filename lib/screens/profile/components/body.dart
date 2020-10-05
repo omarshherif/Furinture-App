@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/screens/cart/cart_screen.dart';
 import 'package:furniture_app/screens/payment/payment_screen.dart';
-import 'package:furniture_app/screens/profile/profile_screen.dart';
 import 'package:furniture_app/size_config.dart';
 import 'info.dart';
 import 'profile_menu_item.dart';

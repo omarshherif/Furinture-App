@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:furniture_app/models/Product.dart';
 import 'package:furniture_app/screens/Welcome/welcome_screen.dart';
 import 'package:furniture_app/screens/cart/cart_screen.dart';
 import 'package:furniture_app/screens/details/details_screen.dart';
@@ -20,7 +21,7 @@ final Map<String, WidgetBuilder> routes = {
   SignUpScreen.routeName: (context) => SignUpScreen(),
   OtpScreen.routeName: (context) => OtpScreen(),
   HomeScreen.routeName: (context) => HomeScreen(),
-  DetailsScreen.routeName: (context) => DetailsScreen(),
+  DetailsScreen.routeName: (context) => DetailsScreen(product: product),
   CartScreen.routeName: (context) => CartScreen(),
   ProfileScreen.routeName: (context) => ProfileScreen(),
   SettingsScreen.routeName: (context) => SettingsScreen(),

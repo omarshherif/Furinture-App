@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:furniture_app/components/default_button.dart';
+import 'package:furniture_app/screens/payment/payment_screen.dart';
 import '../../../size_config.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 
 class CheckoutCard extends StatelessWidget {
   const CheckoutCard({
@@ -56,7 +58,7 @@ class CheckoutCard extends StatelessWidget {
               children: [
                 Text.rich(
                   TextSpan(
-                    text: "Total:\n",
+                    text: translator.translate('Total') + ":\n",
                     children: [
                       TextSpan(
                         text: "\$",
@@ -68,8 +70,10 @@ class CheckoutCard extends StatelessWidget {
                 SizedBox(
                   width: getProportionateScreenWidth(190),
                   child: DefaultButton(
-                    text: "Check Out",
-                    press: () {},
+                    text: translator.translate('Check Out'),
+                    press: () {
+                      Navigator.pushNamed(context, PaymentScreen.routeName);
+                    },
                   ),
                 ),
               ],

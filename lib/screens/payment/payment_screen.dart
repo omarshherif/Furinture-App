@@ -27,10 +27,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
-        title: Center(
-          child: Text(
-            translator.translate('Payment Method'),
-          ),
+        title: Text(
+          translator.translate('Payment Method'),
         ),
       ),
       body: Container(
@@ -43,11 +41,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
               switch (index) {
                 case 0:
                   icon = Icon(Icons.add_circle, color: kPrimaryColor);
-                  text = translator.translate('Pay via new card') as Text;
+                  text = Text(translator.translate('Pay via new card'));
+
                   break;
                 case 1:
                   icon = Icon(Icons.credit_card, color: kPrimaryColor);
-                  text = translator.translate('Pay via existing card') as Text;
+                  text = Text(translator.translate('Pay via existing card'));
 
                   break;
               }

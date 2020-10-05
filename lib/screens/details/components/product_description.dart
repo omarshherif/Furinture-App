@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/models/Product.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -73,7 +74,7 @@ class _ProductDescriptionState extends State<ProductDescription> {
                   });
                 },
                 child: Text(
-                  "Add to Cart",
+                  translator.translate('Add to Cart'),
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: defaultSize * 1.6,
