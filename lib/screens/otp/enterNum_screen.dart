@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/otp/otp_screen.dart';
+import 'package:furniture_app/services/firebase_authentication.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
 class EnterNumberScreen extends StatefulWidget {
@@ -13,6 +14,9 @@ class EnterNumberScreen extends StatefulWidget {
 
 class _EnterNumberScreenState extends State<EnterNumberScreen> {
   TextEditingController phoneController = TextEditingController();
+  FirebaseAuthBrain firebaseAuthBrain = FirebaseAuthBrain();
+  String phone;
+  // String verificationId;
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +116,11 @@ class _EnterNumberScreenState extends State<EnterNumberScreen> {
                             keyboardType: TextInputType.phone,
                             maxLines: 1,
                             placeholder: '+33...',
+                            onSubmitted: (value) {
+                              setState(() {
+                                phone = value;
+                              });
+                            },
                           ),
                         ),
                         Container(
@@ -120,7 +129,17 @@ class _EnterNumberScreenState extends State<EnterNumberScreen> {
                           constraints: const BoxConstraints(maxWidth: 500),
                           child: RaisedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, OtpScreen.routeName);
+                              firebaseAuthBrain.verifyPhone(phone);
+                              // Navigator.pushNamed(context, OtpScreen.routeName);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => OtpScreen(
+                                    // verificationId: verificationId,
+                                    firebaseAuthBrain: firebaseAuthBrain,
+                                  ),
+                                ),
+                              );
                             },
                             color: kPrimaryColor,
                             shape: const RoundedRectangleBorder(

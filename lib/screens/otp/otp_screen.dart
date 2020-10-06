@@ -1,17 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
+import 'package:furniture_app/screens/home/home_screen.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 // import 'package:numeric_keyboard/numeric_keyboard.dart';
+import 'package:furniture_app/size_config.dart';
+import 'package:furniture_app/services/firebase_authentication.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:furniture_app/routes.dart';
+import 'components/OtpNumberBox.dart';
 
 class OtpScreen extends StatefulWidget {
   static String routeName = "/otp";
-  const OtpScreen({Key key}) : super(key: key);
+  final FirebaseAuthBrain firebaseAuthBrain;
+  OtpScreen({this.firebaseAuthBrain});
+  // const OtpScreen({Key key}) : super(key: key);
   @override
   _OtpScreenState createState() => _OtpScreenState();
 }
 
 class _OtpScreenState extends State<OtpScreen> {
   String text = '';
+  String smsCode = "";
+  FocusNode pin2FocusNode;
+  FocusNode pin3FocusNode;
+  FocusNode pin4FocusNode;
+  FocusNode pin5FocusNode;
+  FocusNode pin6FocusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    pin2FocusNode = FocusNode();
+    pin3FocusNode = FocusNode();
+    pin4FocusNode = FocusNode();
+    pin5FocusNode = FocusNode();
+    pin6FocusNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    pin2FocusNode.dispose();
+    pin3FocusNode.dispose();
+    pin4FocusNode.dispose();
+    pin5FocusNode.dispose();
+    pin6FocusNode.dispose();
+  }
 
   void _onKeyboardTap(String value) {
     setState(() {
@@ -20,27 +54,33 @@ class _OtpScreenState extends State<OtpScreen> {
   }
 
   Widget otpNumberWidget(int position) {
-    try {
-      return Container(
-        height: 40,
-        width: 40,
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.black, width: 0),
-            borderRadius: const BorderRadius.all(Radius.circular(8))),
-        child: Center(
-            child: Text(
-          text[position],
-          style: const TextStyle(color: Colors.black),
-        )),
-      );
-    } catch (e) {
-      return Container(
-        height: 40,
-        width: 40,
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.black, width: 0),
-            borderRadius: const BorderRadius.all(Radius.circular(8))),
-      );
+    // try {
+    return Container(
+      height: 40,
+      width: 40,
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black, width: 0),
+          borderRadius: const BorderRadius.all(Radius.circular(8))),
+      child: Center(
+          child: Text(
+        text[position],
+        style: const TextStyle(color: Colors.black),
+      )),
+    );
+    // } catch (e) {
+    //   return Container(
+    //     height: 40,
+    //     width: 40,
+    //     decoration: BoxDecoration(
+    //         border: Border.all(color: Colors.black, width: 0),
+    //         borderRadius: const BorderRadius.all(Radius.circular(8))),
+    //   );
+    // }
+  }
+
+  void nextField(String value, FocusNode focusNode) {
+    if (value.length == 1) {
+      focusNode.requestFocus();
     }
   }
 
@@ -97,12 +137,65 @@ class _OtpScreenState extends State<OtpScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                otpNumberWidget(0),
-                                otpNumberWidget(1),
-                                otpNumberWidget(2),
-                                otpNumberWidget(3),
-                                otpNumberWidget(4),
-                                otpNumberWidget(5),
+                                OtpNumberBox(
+                                  autoFocus: true,
+                                  onChanged: (value) {
+                                    smsCode = '$smsCode$value';
+                                    nextField(value, pin2FocusNode);
+                                  },
+                                ),
+                                OtpNumberBox(
+                                  focusNode: pin2FocusNode,
+                                  onChanged: (value) {
+                                    smsCode = '$smsCode$value';
+                                    nextField(value, pin3FocusNode);
+                                  },
+                                ),
+                                OtpNumberBox(
+                                  focusNode: pin3FocusNode,
+                                  onChanged: (value) {
+                                    smsCode = '$smsCode$value';
+                                    nextField(value, pin4FocusNode);
+                                  },
+                                ),
+                                OtpNumberBox(
+                                  focusNode: pin4FocusNode,
+                                  onChanged: (value) {
+                                    smsCode = '$smsCode$value';
+                                    nextField(value, pin5FocusNode);
+                                  },
+                                ),
+                                OtpNumberBox(
+                                  focusNode: pin5FocusNode,
+                                  onChanged: (value) {
+                                    smsCode = '$smsCode$value';
+                                    nextField(value, pin6FocusNode);
+                                  },
+                                ),
+                                OtpNumberBox(
+                                  focusNode: pin6FocusNode,
+                                  onChanged: (value) {
+                                    smsCode = '$smsCode$value';
+                                    widget.firebaseAuthBrain.verifySms(smsCode);
+                                    pin6FocusNode.unfocus();
+                                    widget.firebaseAuthBrain.auth
+                                        .authStateChanges()
+                                        .listen(
+                                      (User user) {
+                                        if (user != null) {
+                                          print('User is signed in!');
+                                          // Navigator.pushNamed(context, HomeScreen.routeName);
+                                          Navigator.of(context)
+                                              .pushNamedAndRemoveUntil(
+                                                  HomeScreen.routeName,
+                                                  (Route<dynamic> route) =>
+                                                      false);
+                                        }
+                                      },
+                                    );
+                                    print(smsCode);
+                                  },
+                                ),
                               ],
                             ),
                           ),

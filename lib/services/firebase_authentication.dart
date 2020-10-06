@@ -6,6 +6,7 @@ class FirebaseAuthBrain {
   String email;
   String password;
   String phone;
+  String vId;
 
   FirebaseAuthBrain() {
     auth = FirebaseAuth.instance;
@@ -21,7 +22,6 @@ class FirebaseAuthBrain {
   }
 
   void signInWithEmail() async {
-    // await firebaseAuthBrain.auth.signOut();
     try {
       UserCredential userCredential = await auth.signInWithEmailAndPassword(
         email: email,
@@ -48,6 +48,37 @@ class FirebaseAuthBrain {
     );
 
     return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
+  void verifyPhone(String phone) async {
+    await auth.verifyPhoneNumber(
+      phoneNumber: '+2$phone',
+      verificationCompleted: (PhoneAuthCredential credential) {},
+      verificationFailed: (FirebaseAuthException e) {
+        if (e.code == 'invalid-phone-number') {
+          print('The provided phone number is not valid.');
+        }
+      },
+      codeSent: (String verificationId, [int resendToken]) async {
+        vId = verificationId;
+        print('code sent');
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
+        print('timed out');
+      },
+    );
+    // userStatus();
+  }
+
+  void verifySms(String smsCode) async {
+    try {
+      PhoneAuthCredential phoneAuthCredential =
+          PhoneAuthProvider.credential(verificationId: vId, smsCode: smsCode);
+
+      await auth.signInWithCredential(phoneAuthCredential);
+    } catch (e) {
+      print(e.toString());
+    }
   }
 
   Future signOut() async {
