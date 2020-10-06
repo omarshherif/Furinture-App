@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_app/components/rounded_ChangePass_field.dart';
 import 'package:furniture_app/components/rounded_password_field.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/changePassword/components/background.dart';
@@ -35,17 +36,17 @@ class Body extends StatelessWidget {
               ),
               SizedBox(height: size.height * 0.03),
               SizedBox(height: size.height * 0.03),
-              RoundedPasswordField(
+              RoundedChangePasswordField(
                 hintText: translator.translate('Current Password'),
                 onChanged: (value) {},
               ),
-              RoundedPasswordField(
+              RoundedChangePasswordField(
                 hintText: translator.translate('New Password'),
                 onChanged: (value) {
                   newPassword = value;
                 },
               ),
-              RoundedPasswordField(
+              RoundedChangePasswordField(
                 hintText: translator.translate('Confirm New Password'),
                 onChanged: (value) {
                   cPassword = value;

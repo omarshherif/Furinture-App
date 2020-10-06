@@ -41,7 +41,7 @@ class ProfileMenuItem extends StatelessWidget {
               Icon(
                 Icons.arrow_forward_ios,
                 size: defaultSize * 1.6,
-                color: kTextLigntColor,
+                color: kTextLightColor,
               )
             ],
           ),
