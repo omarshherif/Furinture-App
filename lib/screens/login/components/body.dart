@@ -52,6 +52,7 @@ class _BodyState extends State<Body> {
                 },
               ),
               RoundedPasswordField(
+                hintText: translator.translate('Password'),
                 onChanged: (value) {
                   firebaseAuthBrain.password = value;
                 },

@@ -50,16 +50,6 @@ class FirebaseAuthBrain {
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
-  // bool isSignedIn() {
-  //   auth.authStateChanges().listen((User user) {
-  //     if (user != null) {
-  //       print('User is signed in!');
-  //       return true;
-  //     }
-  //   });
-  //   print('User is currently signed out!');
-  //   return false;
-  // }
   Future signOut() async {
     try {
       return await auth.signOut();

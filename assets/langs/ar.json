@@ -1,6 +1,6 @@
 
 {
-  "Furniture App": "تطبيق اثاث",
+  "Furniture_App": "تطبيق اثاث",
   "Sign In": "تسجيل دخول",
   "SIGNUP": "تسجيل",
   "Welcome": "مرحبا",
@@ -38,15 +38,19 @@
   "Received Offer Notification": "تلقي إشعار العرض",
   "Received App Updates": "تلقي تحديثات التطبيق",
   "Add to Cart": "أضف إلى العربة",
-  "This armchair is an elegant and functional piece of furniture. It is suitable for family visits and parties with friends and perfect for relaxing in front of the TV after hard work.":"هذا الكرسي بذراعين هو قطعة أثاث أنيقة وعملية. إنه مناسب للزيارات العائلية والحفلات مع الأصدقاء ومثالي للاسترخاء أمام التلفزيون بعد العمل الشاق.",
+  "Description_Product":"هذا الكرسي بذراعين هو قطعة أثاث أنيقة وعملية. إنه مناسب للزيارات العائلية والحفلات مع الأصدقاء ومثالي للاسترخاء أمام التلفزيون بعد العمل الشاق.",
   "Next": "التالي",
   "We will send you an ": "سوف نرسل لك ",
   "One Time Password ": "كلمة السر لمرة واحدة",
   "on this mobile number ": "على رقم هاتفك هذا",
   "Confirm": "تم",
-  "Enter 6 digits verification code sent to your number": "أدخل رمز التحقق المكون من ٦ أرقام المرسل إلى رقمك",
+  "Otp_Screen_auth": "أدخل رمز التحقق المكون من ٦ أرقام المرسل إلى رقمك",
   "Available Colors": "الألوان المتاحة",
-  "From": "يبداء من"
+  "From": "يبداء من",
+  "Current Password": "كلمة السر الحالية",
+  "New Password": "كلمة السر الجديدة",
+  "Confirm New Password": "تاكيد كلمة السر"
+
 
 
 

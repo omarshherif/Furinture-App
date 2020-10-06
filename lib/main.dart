@@ -1,15 +1,23 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/Welcome/welcome_screen.dart';
+import 'package:furniture_app/screens/home/home_screen.dart';
 //import 'package:furniture_app/screens/otp/pages/splash_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'routes.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+bool hasUser = false;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  if (FirebaseAuth.instance.currentUser != null) {
+    hasUser = true;
+  } else {
+    hasUser = false;
+  }
 
   await translator.init(
     localeDefault: LocalizationDefaultType.device,
@@ -41,7 +49,8 @@ class MyApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: WelcomeScreen.routeName,
+      initialRoute:
+          hasUser == true ? HomeScreen.routeName : WelcomeScreen.routeName,
       routes: routes,
 
       localizationsDelegates: translator.delegates, // Android + iOS Delegates

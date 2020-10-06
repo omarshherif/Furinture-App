@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:furniture_app/models/Product.dart';
 import 'package:furniture_app/screens/Welcome/welcome_screen.dart';
 import 'package:furniture_app/screens/cart/cart_screen.dart';
+import 'package:furniture_app/screens/changePassword/changePassword_screen.dart';
 import 'package:furniture_app/screens/details/details_screen.dart';
 import 'package:furniture_app/screens/home/home_screen.dart';
 import 'package:furniture_app/screens/Login/login_screen.dart';
@@ -28,4 +29,5 @@ final Map<String, WidgetBuilder> routes = {
   PaymentScreen.routeName: (context) => PaymentScreen(),
   ExistingCardsScreen.routeName: (context) => ExistingCardsScreen(),
   EnterNumberScreen.routeName: (context) => EnterNumberScreen(),
+  ChangePasswordScreen.routeName: (context) => ChangePasswordScreen(),
 };

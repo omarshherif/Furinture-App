@@ -5,9 +5,12 @@ import 'package:furniture_app/constants.dart';
 
 class RoundedPasswordField extends StatelessWidget {
   final ValueChanged<String> onChanged;
+
+  final String hintText;
   const RoundedPasswordField({
     Key key,
     this.onChanged,
+    this.hintText,
   }) : super(key: key);
 
   @override
@@ -18,11 +21,11 @@ class RoundedPasswordField extends StatelessWidget {
         onChanged: onChanged,
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
-          hintText: translator.translate('Password'),
           icon: Icon(
             Icons.lock,
             color: kPrimaryColor,
           ),
+          hintText: hintText,
           border: InputBorder.none,
         ),
       ),

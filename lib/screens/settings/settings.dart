@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:furniture_app/screens/changePassword/changePassword_screen.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -84,7 +85,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               ? Icons.keyboard_arrow_right
                               : Icons.keyboard_arrow_left),
                           onTap: () {
-                            //open change password
+                            Navigator.pushNamed(
+                                context, ChangePasswordScreen.routeName);
                           },
                         ),
                         _buildDivider(),
@@ -111,19 +113,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           },
                         ),
                         _buildDivider(),
-                        ListTile(
-                          leading: Icon(
-                            Icons.location_on,
-                            color: kPrimaryColor,
-                          ),
-                          title: Text(translator.translate('Change Location')),
-                          trailing: Icon(translator.currentLanguage == 'en'
-                              ? Icons.keyboard_arrow_right
-                              : Icons.keyboard_arrow_left),
-                          onTap: () {
-                            //open change location
-                          },
-                        ),
                       ],
                     ),
                   ),
