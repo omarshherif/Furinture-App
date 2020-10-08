@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/home/home_screen.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
-// import 'package:numeric_keyboard/numeric_keyboard.dart';
-import 'package:furniture_app/size_config.dart';
 import 'package:furniture_app/services/firebase_authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:furniture_app/routes.dart';
 import 'components/OtpNumberBox.dart';
 
 class OtpScreen extends StatefulWidget {

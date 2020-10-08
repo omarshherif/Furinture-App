@@ -4,10 +4,17 @@ import 'package:furniture_app/screens/payment/payment_screen.dart';
 import 'package:furniture_app/size_config.dart';
 import 'info.dart';
 import 'profile_menu_item.dart';
-
+import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
-class Body extends StatelessWidget {
+bool _saving = false;
+
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

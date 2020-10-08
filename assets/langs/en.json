@@ -37,7 +37,7 @@
   "Received Offer Notification": "Received Offer Notification",
   "Received App Updates": "Received App Updates",
   "Add to Cart": "Add to Cart",
-  "Description_Product":"This armchair is an elegant and functional piece of furniture. It is suitable for family visits and parties with friends and perfect for relaxing in front of the TV after hard work.",
+  "description":"This armchair is an elegant and functional piece of furniture. It is suitable for family visits and parties with friends and perfect for relaxing in front of the TV after hard work.",
   "Next": "Next",
   "We will send you an ": "We will send you an ",
   "One Time Password ": "One Time Password ",
@@ -48,7 +48,9 @@
   "From": "From",
   "Current Password": "Current Password",
   "New Password": "New Password",
-  "Confirm New Password": "Confirm New Password"
+  "Confirm New Password": "Confirm New Password",
+  "Chair": "Chair",
+  "Wood Frame": "Wood Frame"
 
 
 }
