@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/models/Cart.dart';
+import 'package:furniture_app/models/Product.dart';
 
 import '../../../size_config.dart';
 import 'cart_card.dart';
@@ -25,7 +26,7 @@ class _BodyState extends State<Body> {
             direction: DismissDirection.endToStart,
             onDismissed: (direction) {
               setState(() {
-                cartItems.removeAt(1);
+                cartItems.removeAt(index);
               });
             },
             background: Container(
@@ -41,7 +42,7 @@ class _BodyState extends State<Body> {
                 ],
               ),
             ),
-            child: CartCard(cart: cartItems[2]),
+            child: CartCard(cart: cartItems[index]),
           ),
         ),
       ),

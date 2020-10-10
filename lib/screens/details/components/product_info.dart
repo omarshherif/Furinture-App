@@ -29,7 +29,7 @@ class ProductInfo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(product.category.toUpperCase(), style: lightTextStyle),
+            Text(translator.translate("ProductTitle"), style: lightTextStyle),
             SizedBox(height: defaultSize),
             Text(
               product.title,

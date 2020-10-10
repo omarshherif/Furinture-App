@@ -122,8 +122,7 @@ class _OtpScreenState extends State<OtpScreen> {
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 20),
                               child: Text(
-                                  translator.translate(
-                                      'Enter 6 digits verification code sent to your number'),
+                                  translator.translate('Otp_Screen_auth'),
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 26,

@@ -4,8 +4,6 @@ import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/models/Product.dart';
 import 'package:furniture_app/screens/cart/cart_screen.dart';
 import 'package:furniture_app/size_config.dart';
-//import 'package:localize_and_translate/localize_and_translate.dart';
-
 import 'components/body.dart';
 
 class DetailsScreen extends StatelessWidget {

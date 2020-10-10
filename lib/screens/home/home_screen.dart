@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:furniture_app/services/firebase_authentication.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,11 @@ import 'package:furniture_app/screens/settings/settings.dart';
 import 'package:furniture_app/size_config.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
+// class ScreenArguments {
+//   final String userName;
+//   ScreenArguments(this.userName);
+// }
+
 class HomeScreen extends StatefulWidget {
   static String routeName = "/home";
 
@@ -19,6 +25,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final FirebaseAuthBrain auth = FirebaseAuthBrain();
+  //String userName;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: <Widget>[
               UserAccountsDrawerHeader(
                 accountName: Text("Omar Sherif"),
-                accountEmail: Text("omarshherif@yahoo.com"),
+                accountEmail: Text(FirebaseAuth.instance.currentUser.email),
                 currentAccountPicture: GestureDetector(
                   child: CircleAvatar(
                     backgroundColor: Colors.white,

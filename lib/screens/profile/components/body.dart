@@ -1,13 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/screens/cart/cart_screen.dart';
 import 'package:furniture_app/screens/payment/payment_screen.dart';
 import 'package:furniture_app/size_config.dart';
 import 'info.dart';
 import 'profile_menu_item.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
-
-bool _saving = false;
 
 class Body extends StatefulWidget {
   @override
@@ -23,7 +21,7 @@ class _BodyState extends State<Body> {
           Info(
             image: "assets/images/user.png",
             name: "Omar Sherif",
-            email: "omarshherif@yahoo.com",
+            email: FirebaseAuth.instance.currentUser.email,
           ),
           SizedBox(height: SizeConfig.defaultSize * 2), //20
           ProfileMenuItem(
