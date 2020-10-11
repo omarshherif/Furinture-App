@@ -31,7 +31,7 @@ dependencies:
   font_awesome_flutter: ^8.8.1
   shared_preferences: ^0.5.12
   image_picker: ^0.6.7+11
-  rxdart: ^0.24.1
+  email_validator: ^1.0.6
 
 
 

@@ -21,7 +21,6 @@ class Body extends StatelessWidget {
             ? SizeConfig.screenWidth
             : SizeConfig.screenHeight - AppBar().preferredSize.height,
         child: Stack(
-          // crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             ProductInfo(product: product),
             Positioned(

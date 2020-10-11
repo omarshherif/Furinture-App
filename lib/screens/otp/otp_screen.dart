@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/home/home_screen.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
-import 'package:furniture_app/size_config.dart';
 import 'package:furniture_app/services/firebase_authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:furniture_app/routes.dart';
 import 'components/OtpNumberBox.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -115,8 +113,7 @@ class _OtpScreenState extends State<OtpScreen> {
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 20),
                               child: Text(
-                                  translator.translate(
-                                      'Enter 6 digits verification code sent to your number'),
+                                  translator.translate('Otp_Screen_auth'),
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 26,

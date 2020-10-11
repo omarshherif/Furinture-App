@@ -4,8 +4,14 @@ import 'package:furniture_app/screens/profile/components/body.dart';
 import 'package:furniture_app/size_config.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   static String routeName = "/profile";
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);

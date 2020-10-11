@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_app/models/Cart.dart';
 import 'package:furniture_app/models/Product.dart';
+import 'package:furniture_app/screens/cart/cart_screen.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
 import '../../../constants.dart';
@@ -24,7 +26,6 @@ class _ProductDescriptionState extends State<ProductDescription> {
   @override
   Widget build(BuildContext context) {
     double defaultSize = SizeConfig.defaultSize;
-
     return Container(
       constraints: BoxConstraints(minHeight: defaultSize * 44),
       padding: EdgeInsets.only(
@@ -45,7 +46,7 @@ class _ProductDescriptionState extends State<ProductDescription> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              widget.product.subTitle,
+              translator.translate("subTitle"),
               style: TextStyle(
                 fontSize: defaultSize * 1.8,
                 fontWeight: FontWeight.bold,
@@ -53,7 +54,7 @@ class _ProductDescriptionState extends State<ProductDescription> {
             ),
             SizedBox(height: 4.0),
             Text(
-              widget.product.description,
+              translator.translate("description"),
               style: TextStyle(
                 color: kTextColor.withOpacity(0.7),
                 height: 1.5,
@@ -70,8 +71,11 @@ class _ProductDescriptionState extends State<ProductDescription> {
                 color: kPrimaryColor,
                 onPressed: () {
                   setState(() {
-                    // ++cartLength;
+                    cartItems.add(
+                      Cart(numOfItem: 1, product: demoProducts[0]),
+                    );
                   });
+                  //Navigator.pushNamed(context, CartScreen.routeName);
                 },
                 child: Text(
                   translator.translate('Add to Cart'),

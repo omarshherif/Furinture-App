@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/components/rounded_ChangePass_field.dart';
-import 'package:furniture_app/components/rounded_password_field.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/changePassword/components/background.dart';
-import 'package:furniture_app/services/firebase_authentication.dart';
 import 'package:furniture_app/components/rounded_button.dart';
-import 'package:furniture_app/components/rounded_input_field.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
