@@ -1,22 +1,18 @@
-import 'dart:convert';
-
 import 'package:furniture_app/models/Product.dart';
-import 'package:http/http.dart' as http;
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-// Fetch our Products from API
 Future<List<Product>> fetchProducts() async {
-  const String apiUrl =
-      "https://5f210aa9daa42f001666535e.mockapi.io/api/products";
+  List l = [];
+  await FirebaseFirestore.instance
+      .collection('furniture')
+      .get()
+      .then((QuerySnapshot querySnapshot) => {
+            querySnapshot.docs.forEach((doc) {
+              l.add(doc.data());
+            })
+          });
 
-  final response = await http.get(apiUrl);
+  List<Product> products = l.map((data) => Product.fromJson(data)).toList();
 
-  if (response.statusCode == 200) {
-    List<Product> products = (json.decode(response.body) as List)
-        .map((data) => Product.fromJson(data))
-        .toList();
-
-    return products;
-  } else {
-    throw Exception('Failed to load');
-  }
+  return products;
 }

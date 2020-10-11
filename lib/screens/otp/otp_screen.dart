@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/home/home_screen.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
-// import 'package:numeric_keyboard/numeric_keyboard.dart';
 import 'package:furniture_app/size_config.dart';
 import 'package:furniture_app/services/firebase_authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -67,15 +66,6 @@ class _OtpScreenState extends State<OtpScreen> {
         style: const TextStyle(color: Colors.black),
       )),
     );
-    // } catch (e) {
-    //   return Container(
-    //     height: 40,
-    //     width: 40,
-    //     decoration: BoxDecoration(
-    //         border: Border.all(color: Colors.black, width: 0),
-    //         borderRadius: const BorderRadius.all(Radius.circular(8))),
-    //   );
-    // }
   }
 
   void nextField(String value, FocusNode focusNode) {
@@ -243,19 +233,6 @@ class _OtpScreenState extends State<OtpScreen> {
                         ),
                       ),
                     ),
-                    // NumericKeyboard(
-                    //   onKeyboardTap: _onKeyboardTap,
-                    //   textColor: kPrimaryLightColor,
-                    //   rightIcon: const Icon(
-                    //     Icons.backspace,
-                    //     color: kPrimaryLightColor,
-                    //   ),
-                    //   rightButtonFn: () {
-                    //     setState(() {
-                    //       text = text.substring(0, text.length - 1);
-                    //     });
-                    //   },
-                    // )
                   ],
                 ),
               )

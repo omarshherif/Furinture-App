@@ -9,6 +9,7 @@ import 'package:furniture_app/screens/profile/profile_screen.dart';
 import 'package:furniture_app/screens/settings/settings.dart';
 import 'package:furniture_app/size_config.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = "/home";
@@ -50,8 +51,11 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.zero,
             children: <Widget>[
               UserAccountsDrawerHeader(
-                accountName: Text("Omar Sherif"),
-                accountEmail: Text("omarshherif@yahoo.com"),
+                accountName:
+                    (FirebaseAuth.instance.currentUser.displayName != null)
+                        ? Text(FirebaseAuth.instance.currentUser.displayName)
+                        : Text(""),
+                accountEmail: Text(FirebaseAuth.instance.currentUser.email),
                 currentAccountPicture: GestureDetector(
                   child: CircleAvatar(
                     backgroundColor: Colors.white,

@@ -9,8 +9,9 @@ class Info extends StatelessWidget {
     this.name,
     this.email,
     this.image,
+    this.networkImage,
   }) : super(key: key);
-  final String name, email, image;
+  final String name, email, image, networkImage;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,8 @@ class Info extends StatelessWidget {
                     ),
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(image),
+                      image: NetworkImage(image),
+                      // image: AssetImage(image),
                     ),
                   ),
                 ),

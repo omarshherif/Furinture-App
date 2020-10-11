@@ -57,7 +57,7 @@ class _BodyState extends State<Body> {
                   hintText: translator.translate('Your Name'),
                   onChanged: (value) {
                     setState(() {
-                      //firebaseAuthBrain.email = value;
+                      firebaseAuthBrain.displayName = value;
                     });
                   },
                 ),
@@ -79,9 +79,7 @@ class _BodyState extends State<Body> {
                 ),
                 RoundedCPasswordField(
                   onChanged: (value) {
-                    setState(() {
-                      //firebaseAuthBrain.password = value;
-                    });
+                    setState(() {});
                   },
                 ),
                 RoundedButton(

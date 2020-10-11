@@ -7,6 +7,7 @@ class FirebaseAuthBrain {
   String password;
   String phone;
   String vId;
+  String displayName;
 
   FirebaseAuthBrain() {
     auth = FirebaseAuth.instance;
@@ -67,7 +68,6 @@ class FirebaseAuthBrain {
         print('timed out');
       },
     );
-    // userStatus();
   }
 
   void verifySms(String smsCode) async {
