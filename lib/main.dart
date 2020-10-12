@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'routes.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 bool hasUser = false;
 void main() async {
@@ -35,6 +36,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // print(GetUserName('V46osKD5jSQqjftRkH8B').toString());
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Furniture App',
@@ -59,3 +61,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// void getUserName() {
+//   CollectionReference ref =
+//       FirebaseFirestore.instance.collection('testCollection');
+//   ref.doc('V46osKD5jSQqjftRkH8B').get();
+//   // f
+// }

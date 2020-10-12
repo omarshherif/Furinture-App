@@ -26,8 +26,7 @@ class CartCard extends StatelessWidget {
               padding: EdgeInsets.all(getProportionateScreenWidth(10)),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: NetworkImage(cart.product.images[0]),
-                    fit: BoxFit.cover),
+                    image: NetworkImage(cart.product.image), fit: BoxFit.cover),
                 color: Color(0xFFF5F6F9),
                 borderRadius: BorderRadius.circular(15),
               ),

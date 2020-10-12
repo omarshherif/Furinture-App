@@ -1,14 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:furniture_app/components/default_button.dart';
+import 'package:furniture_app/models/Cart.dart';
 import 'package:furniture_app/screens/payment/payment_screen.dart';
 import '../../../size_config.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
-class CheckoutCard extends StatelessWidget {
-  const CheckoutCard({
-    Key key,
-  }) : super(key: key);
+class CheckoutCard extends StatefulWidget {
+  @override
+  _CheckoutCardState createState() => _CheckoutCardState();
+}
+
+class _CheckoutCardState extends State<CheckoutCard> {
+  // @override
+  // Widget build(BuildContext context) {
+  // return Container();
+  // }
+// }
+
+// class CheckoutCard extends StatelessWidget {
+//   const CheckoutCard({
+//     Key key,
+//   }) : super(key: key);
+  String cardNumber;
+
+  int calculatePrice() {
+    int price = 0;
+    for (int i = 0; i < cartItems.length; i++) {
+      price += cartItems[i].product.price;
+    }
+    return price;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +83,7 @@ class CheckoutCard extends StatelessWidget {
                     text: translator.translate('Total') + ":\n",
                     children: [
                       TextSpan(
-                        text: "\$",
+                        text: "\$${calculatePrice()}",
                         style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
@@ -72,7 +94,20 @@ class CheckoutCard extends StatelessWidget {
                   child: DefaultButton(
                     text: translator.translate('Check Out'),
                     press: () {
-                      Navigator.pushNamed(context, PaymentScreen.routeName);
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                                content: TextField(
+                                  autofocus: true,
+                                  keyboardType: TextInputType.number,
+                                  onSubmitted: (value) {
+                                    setState(() {
+                                      cardNumber = value;
+                                    });
+                                  },
+                                ),
+                              ));
+                      // Navigator.pushNamed(context, PaymentScreen.routeName);
                     },
                   ),
                 ),

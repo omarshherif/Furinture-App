@@ -90,7 +90,6 @@ class _BodyState extends State<Body> {
                   .add({
                 'uid': FirebaseAuth.instance.currentUser.uid,
                 'profileImageLink': (await _reference.getDownloadURL()),
-                // "http://philosophy.ucr.edu/wp-content/uploads/2014/10/no-profile-img.gif",
               });
             },
           ),

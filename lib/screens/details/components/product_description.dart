@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/models/Cart.dart';
 import 'package:furniture_app/models/Product.dart';
-import 'package:furniture_app/screens/cart/cart_screen.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
-
+import 'package:furniture_app/services/fetchProducts.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 //import 'package:furniture_app/models/Cart.dart';
@@ -72,7 +71,12 @@ class _ProductDescriptionState extends State<ProductDescription> {
                 onPressed: () {
                   setState(() {
                     cartItems.add(
-                      Cart(numOfItem: 1, product: demoProducts[0]),
+                      Cart(
+                          numOfItem: 1,
+                          // product:
+                          //     demoProducts[int.parse(widget.product.id) - 1]),
+                          product: myProducts[int.parse(widget.product.id)]),
+                      // product: myProducts
                     );
                   });
                   //Navigator.pushNamed(context, CartScreen.routeName);
