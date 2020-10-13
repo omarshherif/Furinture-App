@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/models/Cart.dart';
-import 'package:furniture_app/models/Product.dart';
-
 import '../../../size_config.dart';
 import 'cart_card.dart';
+
+int itemCount = 0;
 
 class Body extends StatefulWidget {
   @override
@@ -12,6 +12,12 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  void getCount() {
+    setState(() {
+      itemCount = cartItems.length;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,8 +32,20 @@ class _BodyState extends State<Body> {
             direction: DismissDirection.endToStart,
             onDismissed: (direction) {
               setState(() {
-                cartItems.removeAt(index);
+                if (cartItems.length != 0) {
+                  cartItems.removeAt(index);
+                  // price -= cartItems[index].product.price;
+                  getCount();
+                  print(cartItems.length);
+                  //ValueNotifier(itemCount);
+
+                  print(itemCount);
+                }
               });
+
+              Scaffold.of(context).showSnackBar(SnackBar(
+                content: Text("Product Dismissed"),
+              ));
             },
             background: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),

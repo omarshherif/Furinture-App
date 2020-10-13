@@ -1,7 +1,5 @@
-//import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/models/Cart.dart';
-import 'package:furniture_app/models/Product.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';

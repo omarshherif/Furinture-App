@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/screens/Welcome/welcome_screen.dart';
 import 'package:furniture_app/screens/home/home_screen.dart';
-//import 'package:furniture_app/screens/otp/pages/splash_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'routes.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 bool hasUser = false;
 void main() async {

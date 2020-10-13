@@ -33,19 +33,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
       centerTitle: true,
       title: Text(translator.translate('Profile')),
-      actions: <Widget>[
-        FlatButton(
-          onPressed: () {},
-          child: Text(
-            translator.translate('Edit'),
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: SizeConfig.defaultSize * 1.6, //16
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ],
+      // actions: <Widget>[
+      //   FlatButton(
+      //     onPressed: ()
+      //     },
+      //     child: Text(
+      //       translator.translate('Edit'),
+      //       style: TextStyle(
+      //         color: Colors.white,
+      //         fontSize: SizeConfig.defaultSize * 1.6, //16
+      //         fontWeight: FontWeight.bold,
+      //       ),
+      //     ),
+      //   ),
+      // ],
     );
   }
 }

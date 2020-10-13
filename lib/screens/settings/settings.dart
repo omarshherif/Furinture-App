@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -50,7 +51,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         //open edit profile
                       },
                       title: Text(
-                        "Omar Sherif",
+                        (FirebaseAuth.instance.currentUser.displayName == null)
+                            ? "Hi! User"
+                            : "Hi!" +
+                                FirebaseAuth.instance.currentUser.displayName,
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -58,7 +62,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                       leading: CircleAvatar(
                         backgroundColor: Colors.white,
-                        backgroundImage: AssetImage("assets/images/user.png"),
+                        backgroundImage: NetworkImage(
+                            "https://media.salon.com/2013/01/Facebook-no-profile-picture-icon-620x389.jpg"),
                       ),
                       trailing: Icon(
                         Icons.edit,

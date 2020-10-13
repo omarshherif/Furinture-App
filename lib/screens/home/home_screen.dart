@@ -1,3 +1,7 @@
+import 'dart:io';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:furniture_app/services/firebase_authentication.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +12,7 @@ import 'package:furniture_app/screens/home/components/body.dart';
 import 'package:furniture_app/screens/profile/profile_screen.dart';
 import 'package:furniture_app/screens/settings/settings.dart';
 import 'package:furniture_app/size_config.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -20,6 +25,56 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final FirebaseAuthBrain auth = FirebaseAuthBrain();
+  String imageLink;
+  File _imageFile;
+  StorageReference _reference = FirebaseStorage.instance
+      .ref()
+      .child('profileImage${FirebaseAuth.instance.currentUser.uid}.jpg');
+  String _downloadUrl;
+
+  void getLink() async {
+    await FirebaseFirestore.instance
+        .collection('user profile picture')
+        .get()
+        .then((QuerySnapshot querySnapshot) => {
+              querySnapshot.docs.forEach((doc) {
+                if (FirebaseAuth.instance.currentUser.uid ==
+                    doc.data()['uid']) {
+                  setState(() {
+                    imageLink = doc.data()['profileImageLink'];
+                    return;
+                  });
+                }
+              })
+            });
+  }
+
+  Future getImage() async {
+    File image;
+    // ignore: deprecated_member_use
+    image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      _imageFile = image;
+      print('Image Path $_imageFile');
+    });
+  }
+
+  Future uploadImage() async {
+    StorageUploadTask uploadTask = _reference.putFile(_imageFile);
+    StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
+    setState(() async {
+      print('Profile Picture Uploaded');
+      Scaffold.of(context)
+          .showSnackBar(SnackBar(content: Text("Profile Picture Uploaded")));
+    });
+  }
+
+  @override
+  void didChangeDependencies() async {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    getLink();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +102,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         drawer: Drawer(
           child: ListView(
-            // Important: Remove any padding from the ListView.
             padding: EdgeInsets.zero,
             children: <Widget>[
               UserAccountsDrawerHeader(
@@ -58,8 +112,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 accountEmail: Text(FirebaseAuth.instance.currentUser.email),
                 currentAccountPicture: GestureDetector(
                   child: CircleAvatar(
-                    backgroundColor: Colors.white,
-                    backgroundImage: AssetImage("assets/images/user.png"),
+                    backgroundColor: kPrimaryLightColor,
+                    child: ClipOval(
+                      child: (imageLink != null)
+                          ? CachedNetworkImage(
+                              imageUrl: imageLink,
+                            )
+                          : Image.network(
+                              "https://media.salon.com/2013/01/Facebook-no-profile-picture-icon-620x389.jpg",
+                              fit: BoxFit.fill,
+                            ),
+                    ),
                   ),
                 ),
                 decoration: BoxDecoration(

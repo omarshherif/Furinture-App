@@ -4,8 +4,14 @@ import 'package:localize_and_translate/localize_and_translate.dart';
 import 'components/body.dart';
 import 'components/check_out_card.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   static String routeName = "/cart";
+
+  @override
+  _CartScreenState createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +32,22 @@ class CartScreen extends StatelessWidget {
           Navigator.pop(context);
         },
       ),
+      actions: <Widget>[
+        FlatButton(
+            child: Text(
+              "Clear",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
+            onPressed: () {
+              setState(() {
+                cartItems = [];
+                itemCount = 0;
+              });
+            })
+      ],
       title: Column(
         children: [
           Text(
@@ -33,7 +55,7 @@ class CartScreen extends StatelessWidget {
             style: TextStyle(color: Colors.black),
           ),
           Text(
-            "${cartItems.length} " + translator.translate('items'),
+            "$itemCount " + translator.translate('items'),
             style: Theme.of(context).textTheme.caption,
           ),
         ],

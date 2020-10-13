@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:furniture_app/models/Product.dart';
 import 'package:furniture_app/screens/Welcome/welcome_screen.dart';
 import 'package:furniture_app/screens/cart/cart_screen.dart';
 import 'package:furniture_app/screens/changePassword/changePassword_screen.dart';

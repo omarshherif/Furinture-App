@@ -33,13 +33,13 @@ class Info extends StatelessWidget {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(bottom: defaultSize), //10
-                  height: defaultSize * 14, //140
-                  width: defaultSize * 14,
+                  height: defaultSize * 16, //140
+                  width: defaultSize * 16,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: Colors.white,
-                      width: defaultSize * 0.8, //8
+                      color: Colors.white.withOpacity(0.5),
+                      width: defaultSize * 0.6, //8
                     ),
                     image: DecorationImage(
                       fit: BoxFit.cover,
@@ -48,6 +48,7 @@ class Info extends StatelessWidget {
                     ),
                   ),
                 ),
+
                 Text(
                   name,
                   style: TextStyle(
@@ -59,7 +60,8 @@ class Info extends StatelessWidget {
                 Text(
                   email,
                   style: TextStyle(
-                    fontWeight: FontWeight.w400,
+                    fontSize: 13.5,
+                    fontWeight: FontWeight.bold,
                     color: Color(0xFF8492A2),
                   ),
                 )

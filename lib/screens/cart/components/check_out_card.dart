@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:furniture_app/components/default_button.dart';
 import 'package:furniture_app/models/Cart.dart';
-import 'package:furniture_app/screens/payment/payment_screen.dart';
 import '../../../size_config.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
+
+int price = 0;
 
 class CheckoutCard extends StatefulWidget {
   @override
@@ -25,7 +26,7 @@ class _CheckoutCardState extends State<CheckoutCard> {
   String cardNumber;
 
   int calculatePrice() {
-    int price = 0;
+    price = 0;
     for (int i = 0; i < cartItems.length; i++) {
       price += cartItems[i].product.price;
     }
@@ -107,7 +108,6 @@ class _CheckoutCardState extends State<CheckoutCard> {
                                   },
                                 ),
                               ));
-                      // Navigator.pushNamed(context, PaymentScreen.routeName);
                     },
                   ),
                 ),
