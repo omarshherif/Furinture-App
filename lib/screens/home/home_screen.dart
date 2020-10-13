@@ -105,10 +105,11 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.zero,
             children: <Widget>[
               UserAccountsDrawerHeader(
-                accountName:
-                    (FirebaseAuth.instance.currentUser.displayName != null)
-                        ? Text(FirebaseAuth.instance.currentUser.displayName)
-                        : Text(""),
+                accountName: Text(
+                    (FirebaseAuth.instance.currentUser.displayName == null)
+                        ? "Hi! User"
+                        : "Hi!" +
+                            FirebaseAuth.instance.currentUser.displayName),
                 accountEmail: Text(FirebaseAuth.instance.currentUser.email),
                 currentAccountPicture: GestureDetector(
                   child: CircleAvatar(
